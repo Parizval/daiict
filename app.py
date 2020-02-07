@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 
-import mongo
+#import mongo
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -33,6 +33,12 @@ def capital():
     return render_template('/cap/index.html')
 
 
+@app.route("/ce/create")
+def CreateOrder():
+    return render_template('/ce/createorder.html')
+
+
+
 @app.route("/invoice")
 def invoice():
     return render_template('/sme/invoice.html')
@@ -46,6 +52,18 @@ def login_action():
     print(email,password)
     if  mongo.Login(email,password):
         return "Sucess"
+    return "Error"
+
+
+@app.route('/create_order', methods=['POST'])
+def create_order():
+
+    email = request.form['Amount']
+    password = request.form['Quote']
+    payment_date = request.form['Payment']
+    delievery_date = request.form['Delievery']
+    print(email,password,payment_date,delievery_date)
+    
     return "Error"
 
 @app.route('/sign_action', methods=['POST'])
