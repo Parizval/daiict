@@ -9,8 +9,10 @@
   <title>Kode - Premium Bootstrap Admin Template</title>
 
   <!-- ========== Css Files ========== -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/static/dashboard/css/root.css" rel="stylesheet">
-
+  
+ 
   </head>
   <body>
   <!-- Start Page Loading -->
@@ -135,6 +137,43 @@
 
             <div class="panel-body">
               <form class="form-horizontal">
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label form-label">Select SME</label>
+                  <div class="col-sm-10">
+                    <select class="selectpicker" id="sme">
+                      <option value="TCS.NS">Tata Consultancy Services Limited</option>
+                      <option value="ONGC.NS"> Oil and Natural Gas Corporation Limited</option>
+                      <option value="BAJAJFINSV.NS">Bajaj Finserv Limited</option>
+                      <option value="NESTLEIND.NS">Nestlé India Limited</option>
+                      <option value="NTPC.NS">NTPC Limited</option>
+                      <option value="TECHM.NS">Tech Mahindra Limited</option>
+                      <option value="LT.NS">Larsen & Toubro Limited</option>
+                      <option value="MARUTI.NS">Maruti Suzuki India Limited</option>
+                      <option value="RELIANCE.NS">Reliance Industries Limited</option>
+                      <option value="BRITANNIA.NS">Britannia Industries Limited</option>
+                      <option value="ICICIBANK.NS">ICICI Bank Limited</option>
+                      <option value="HEROMOTOCO.NS">Hero MotoCorp Limited</option>
+                      <option value="BAJFINANCE.NS">Bajaj Finance Limited</option>
+                      <option value="GAIL.NS">GAIL (India) Limited</option>
+                      <option value="WIPRO.NS">Wipro Limited</option>
+                      <option value="TITAN.NS">Titan Company Limited</option>
+                      <option value="CIPLA.NS">Cipla Limited</option>
+                      <option value="ULTRACEMCO.NS">UltraTech Cement Limited</option>
+                      <option value="BHARTIARTL.NS">Bharti Airtel Limited</option>
+                      <option value="GRASIM.NS">Grasim Industries Limited</option>
+                      <option value="KOTAKBANK.NS">Kotak Mahindra Bank Limited</option>
+                      <option value="ITC.NS">ITC Limited</option>
+                      <option value="INDUSINDBK.NS">IndusInd Bank Limited</option>
+                      <option value="TATASTEEL.NS">Tata Steel Limited</option>
+                      <option value="HINDALCO.NS">Hindalco Industries Limited</option>
+                      <option value="COALINDIA.NS">Coal India Limited</option>
+                      <option value="ZEEL.NS">Zee Entertainment Enterprises Limited</option>
+                      <option value="YESBANK.NS">Yes Bank Limited</option>
+                             
+                                      </select>
+                  </div>
+                </div>                
 
                 <div class="form-group">
                   <label for="exampleInputAmount" class="col-sm-2 control-label form-label">Order Amount</label>
@@ -266,7 +305,6 @@
 jQuery Library
 ================================================ -->
 <script type="text/javascript" src="/static/dashboard/js/jquery.min.js"></script>
-
 <!-- ================================================
 Bootstrap Core JavaScript File
 ================================================ -->
@@ -286,6 +324,7 @@ Bootstrap Select
 Bootstrap Toggle
 ================================================ -->
 <script type="text/javascript" src="/static/dashboard/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
 
 <!-- ================================================
 Moment.js
@@ -333,6 +372,7 @@ $('#Order').on('click', function (event) {
 
 $.ajax({
                 data :{
+                    SME :  $("#sme").val(),
                     Amount : $("#Amount").val(),
                     Quote :$("#Quote").val(),
                     Payment:$('input[name="Payment"]').val(),

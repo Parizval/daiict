@@ -1,6 +1,0 @@
-Version : v1.0
-
--- Initial release
-
-
-[See Help Docs/  for detailed changelog]

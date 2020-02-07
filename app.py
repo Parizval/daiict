@@ -58,11 +58,12 @@ def login_action():
 @app.route('/create_order', methods=['POST'])
 def create_order():
 
-    email = request.form['Amount']
-    password = request.form['Quote']
+    amount = request.form['Amount']
+    quote = request.form['Quote']
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
-    print(email,password,payment_date,delievery_date)
+    sme =  request.form['SME']
+#    print(sme,amount,quote,payment_date,delievery_date)
     
     return "Error"
 
