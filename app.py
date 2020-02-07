@@ -30,6 +30,27 @@ def smeindex():
 @app.route("/sme/order")
 def sme_order():
     return render_template('/sme/order.html')
+
+@app.route('/sme/approve', methods=['POST'])
+def sme_approve():
+
+    working_capital = request.form['WorkingCapital']
+    capital_deadling = request.form['CapitalDeadline']
+
+    print(working_capital, capital_deadling)
+   
+    return "Error"
+
+@app.route('/sme/reject', methods=['POST'])
+def sme_reject():
+
+    ce = request.form['CE']
+    amount = request.form['Amount']
+    quote = request.form['Quote']
+    print(ce,amount,quote)
+    return "Error"
+
+
 @app.route("/ce")
 def core():
     return render_template('/ce/index.html')

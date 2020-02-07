@@ -185,7 +185,6 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <td>Order ID</td>
                                         <td>Buyer</td>
                                         <td>Quotation</td>
                                         <td>Amount</td>
@@ -199,13 +198,12 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td># <b>9652</b></td>
-                                        <td>Kode Gaming Laptop</td>
-                                        <td>John Doe</td>
-                                        <td>12/10/2015</td>
+                                        <td id="Buyer" >Kode Gaming Laptop</td>
+                                        <td id="Quotation">John Doe</td>
+                                        <td id="Amount">12/10/2015</td>
                                         <td>Credit Card</td>
                                         <td>Credit Card</td>
-                                        <td><input type="number" /></td>
+                                        <td><input type="number" id="WorkingCapital" /></td>
                                         <td>
                                             <div class="input-prepend input-group">
                                                 <span class="add-on input-group-addon"><i
@@ -214,113 +212,44 @@
                                                     value="03/09/2020" name="Payment" />
                                             </div>
                                         </td>
-                                        <td><button class="btn btn-default">Confirm</button></td>
-                                        <td><button class="btn btn-danger">Decline</button></td>
+                                        <td><button class="btn btn-default" id="Accept">Confirm</button></td>
+                                        <td><button class="btn btn-danger" id="Reject">Decline</button></td>
                                     </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
-                <!-- End Orders -->
 
             </div>
-            <!-- End Fourth Row -->
 
         </div>
-        <!-- END CONTAINER -->
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-        <!-- Start Footer -->
-        <div class="row footer">
-            <div class="col-md-6 text-left">
-                Copyright © 2015 <a href="http://themeforest.net/user/egemem/portfolio" target="_blank">Egemem</a> All
-                rights reserved.
-            </div>
-            <div class="col-md-6 text-right">
-                Design and Developed by <a href="http://themeforest.net/user/egemem/portfolio"
-                    target="_blank">Egemem</a>
-            </div>
-        </div>
-        <!-- End Footer -->
-
-
+      
     </div>
-    <!-- End Content -->
-
-
-    <!-- ================================================
-jQuery Library
-================================================ -->
     <script type="text/javascript" src="/static/dashboard/js/jquery.min.js"></script>
-
-    <!-- ================================================
-Bootstrap Core JavaScript File
-================================================ -->
     <script src="/static/dashboard/js/bootstrap/bootstrap.min.js"></script>
-
-    <!-- ================================================
-Plugin.js - Some Specific JS codes for Plugin Settings
-================================================ -->
     <script type="text/javascript" src="/static/dashboard/js/plugins.js"></script>
 
-    <!-- ================================================
-Bootstrap Select
-================================================ -->
     <script type="text/javascript" src="/static/dashboard/js/bootstrap-select/bootstrap-select.js"></script>
 
-    <!-- ================================================
-Bootstrap Toggle
-================================================ -->
     <script type="text/javascript" src="/static/dashboard/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
-
-    <!-- ================================================
-Bootstrap WYSIHTML5
-================================================ -->
-    <!-- main file -->
     <script type="text/javascript" src="/static/dashboard/js/bootstrap-wysihtml5/wysihtml5-0.3.0.min.js"></script>
-    <!-- bootstrap file -->
     <script type="text/javascript" src="/static/dashboard/js/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
 
-    <!-- ================================================
-Summernote
-================================================ -->
     <script type="text/javascript" src="/static/dashboard/js/summernote/summernote.min.js"></script>
-
-    <!-- ================================================
-Flot Chart
-================================================ -->
-    
-
-    <!-- ================================================
-Chartist
-================================================ -->
-    
-    
     
     <!-- ================================================
 Data Tables
 ================================================ -->
     <script src="/static/dashboard/js/datatables/datatables.min.js"></script>
 
-    <!-- ================================================
-Sweet Alert
-================================================ -->
+  
     <script src="/static/dashboard/js/sweet-alert/sweet-alert.min.js"></script>
 
-    <!-- ================================================
-Kode Alert
-================================================ -->
+  
     <script src="/static/dashboard/js/kode-alert/main.js"></script>
 
-    <!-- ================================================
-Gmaps
-================================================ -->
-    <!-- google maps api -->
-   
-    <!-- ================================================
-jQuery UI
-================================================ -->
+  
     <script type="text/javascript" src="/static/dashboard/js/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- ================================================
@@ -350,6 +279,67 @@ Bootstrap Date Range Picker
         });
     </script>
 
+<script>
+
+    $(document).ready(
+
+        function () {
+
+            $('#Accept').on('click', function (event) {
+
+                $.ajax({
+                    data: {
+                        
+                        WorkingCapital: $("#WorkingCapital").val(),
+                        CapitalDeadline: $('#date-picker').val()
+                        
+                    },
+                    type: "POST",
+                    url: '/sme/approve'
+                })
+                    .done(function (data) {
+                        if (data.error) {
+                            alert("Error")
+                        }
+                        else {
+                            //    $(location).attr('href', '/Dash')
+
+                            alert("Success");
+                        }
+                    });
+
+                event.preventDefault();
+
+            });
+
+            $('#Reject').on('click', function (event) {
+
+            $.ajax({
+                data: {
+                    CE: $("#Buyer").text(),
+                    Amount: $("#Amount").text(),
+                    Quote: $("#Quotation").text()
+                },
+                type: "POST",
+                url: '/sme/reject'
+            })
+                .done(function (data) {
+                    if (data.error) {
+                        alert("Error")
+                    }
+                    else {
+                        //    $(location).attr('href', '/Dash')
+
+                        alert("Success");
+                    }
+                });
+
+event.preventDefault();
+
+});
+
+        });
+</script>
 
 </body>
 
