@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-
+import utils
 #import mongo
 
 app = Flask(__name__, static_url_path='/static')
@@ -46,7 +46,7 @@ def capital_market():
 @app.route("/capital/view/<order>")
 def capital_view(order):
     print(order)
-    return render_template('/cap/marketplace.html')
+    return render_template('/cap/vieworder.html', graph_data=utils.make_line_graph())
 
 
 @app.route("/ce/create")
