@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 
-#import mongo
+import mongo
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -20,6 +20,9 @@ def error404(error):
     return render_template('404.html'), 404
 
 
+@app.route("/sme")
+def smeindex():
+    return render_template('/sme/index.html')
 
 # Login and Sign Up Methods 
 
