@@ -24,6 +24,15 @@ def error404(error):
 def smeindex():
     return render_template('/sme/index.html')
 
+@app.route("/ce")
+def core():
+    return render_template('/ce/index.html')
+
+@app.route("/capital")
+def capital():
+    return render_template('/cap/index.html')
+
+
 @app.route("/invoice")
 def invoice():
     return render_template('/sme/invoice.html')
