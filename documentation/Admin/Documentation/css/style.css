@@ -1,0 +1,194 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,600,400);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+  color: #666;
+  background: #3D464D;
+  margin: 0;
+  line-height: 1.9em;
+  font-size: 13px;
+  font-family: 'Open Sans', sans-serif;
+  outline: 0;
+  text-Shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+p{
+	margin-bottom: 20px;
+}
+::-moz-selection {
+  background: #D5EAFF;
+}
+::selection {
+  background: #D5EAFF;
+}
+a {
+  color: #399bff;
+  text-decoration: none;
+}
+b{
+	font-weight: 600;
+	color: #444;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Montserrat', sans-serif;
+	color: #444;
+}
+h5{
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#top{
+	background: #399BFF;
+	color: #fff;
+	padding: 15px;
+	width: 100%;
+	position: relative;
+	text-align: right;
+}
+#top h1{
+	color: #fff;
+	margin: 0;
+	font-size: 20px;
+	position: absolute;
+	left: 20px;
+}
+#top a{
+	color: #fff;
+}
+#top h1 small{
+	color: #fff;
+	opacity: 0.7;
+	margin-left: 10px;;
+}
+.top-menu{
+	text-align: right;
+	padding: 0;
+	margin: 0;
+}
+.top-menu li{
+	display: inline-block;
+	padding-left: 20px;
+}
+.sidebar{
+	padding: 20px 20px;
+	font-weight: 600;
+}
+.sidebar li{
+	display: block;
+	padding-bottom: 10px;
+	padding-left: 20px;;
+}
+.sidebar a{
+	display:block;
+	color: #B1B5B8;
+}
+.sidebar a:hover{
+	color: #fff;
+}
+.sidebar .title{
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-size: 11px;
+	padding-left: 0;
+	color: #8B9094;
+	opacity: 0.7;
+}
+.content{
+	background: #fff;
+	padding: 20px 40px;
+}
+.content h4{
+	color: #399BFF;
+	text-transform: uppercase;
+}
+
+.post{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 30px;
+}
+
+.root-ul{
+	line-height: 2em;
+	background: #f9f9f9;
+	border: 1px solid #f2f2f2;
+	display: inline-block;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	border-radius: 5px;;
+	color: #999;
+}
+.root-ul b{
+	color: #333;
+	font-weight: 600;
+	margin-right: 5px;
+}
+.root-ul li{
+	list-style: disc;
+}
+
+.gotop{
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	color: #333;
+	padding: 5px 20px;
+	background: #fff;
+	border-radius: 4px;
+	opacity: 0.6;
+}
+.gotop:hover{
+	text-decoration: none;
+	color: #fff;
+	background: #399BFF;
+	opacity: 1;
+}
+.bigtext{
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

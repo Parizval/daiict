@@ -1,0 +1,1 @@
+This folder contain plugin licences.

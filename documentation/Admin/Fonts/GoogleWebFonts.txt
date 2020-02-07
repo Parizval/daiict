@@ -1,0 +1,3 @@
+Google Web Fonts
+- Montserrat : http://www.google.com/fonts/specimen/Montserrat
+- Open Sans : http://www.google.com/fonts/specimen/Open+Sans
