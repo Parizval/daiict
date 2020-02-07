@@ -98,7 +98,7 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="panel panel-widget">
                         <div class="panel-title">
-                            LAST ORDERS <span class="label label-warning">196</span>
+                            LATEST ENTRIES <span class="label label-warning">{{data|length}}</span>
                         </div>
 
                         <div class="panel-search">
@@ -114,22 +114,28 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <td>Order ID</td>
-                                        <td>Product</td>
-                                        <td>Buyer</td>
-                                        <td>Date</td>
-                                        <td>Payment</td>
+                                        <td>CE</td>
+                                        <td>SME</td>
+                                        <td>Amount</td>
+                                        <td>Payment date</td>
+                                        <td>Interest</td>
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    {% for i in data %}
+                                    {% if data[i].approved=='yes' %}
                                     <tr>
-                                        <td># <b>9652</b></td>
-                                        <td>Kode Gaming Laptop</td>
-                                        <td>John Doe</td>
-                                        <td>12/10/2015</td>
-                                        <td>Credit Card</td>
+                                        <td>{{data[i].ce}}</td>
+                                        <td>{{data[i].sme}}</td>
+                                        <td>{{data[i].amount}}</td>
+                                        <td>{{data[i].payment_date}}</td>
+                                        <td>{{data[i].interest}}</td>
+                                        <td><a href='/capital/view/{{i}}'>View</a></td>
                                     </tr>
-                                    <tr>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <!-- <tr>
                                         <td># <b>1963</b></td>
                                         <td>New Season Jacket</td>
                                         <td>Jane Doe</td>
@@ -149,7 +155,7 @@
                                         <td>Jonathan Doe</td>
                                         <td>12/10/2015</td>
                                         <td>Credit Card</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
 

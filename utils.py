@@ -1,6 +1,7 @@
 from database import Database
 import hashlib
 import pygal
+import time
 
 db = Database()
 
@@ -44,14 +45,29 @@ def update_ce(name, sme):
 
 
 def make_order(quote, amount, pd, dd, sme, ce='test'):
+    hash = hashlib.sha1(str(time.time()).encode())
+    hex_dig = hash.hexdigest()
+    uid = hex_dig[-15:]
     db.write_data('orders', {
         'quote': quote,
         'amount': amount,
         'payment_date': pd,
         'delivery_date': dd,
         'sme': sme,
-        'ce': ce
-    }, flag=sme+ce+pd)
+        'ce': ce,
+        'approved': 'no'
+    }, flag=uid)
+    return uid
+
+
+def update_order(uid, approval):
+    old_data = db.get_data('orders/{}'.format(uid))
+    if approval:
+        old_data['approved'] = 'yes'
+        old_data['interest'] = approval
+        db.write_data('orders', old_data, flag=uid)
+    else:
+        db.write_data('orders', {}, flag=uid)
 
 
 def make_line_graph():

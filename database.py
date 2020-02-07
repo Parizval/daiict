@@ -15,10 +15,10 @@ class Database:
     def write_data(self, category, data, flag=False):
         if not flag:
             gen = data['name']
+            hash_object = hashlib.sha1(gen.encode())
+            hex_dig = hash_object.hexdigest()
         else:
-            gen = flag
-        hash_object = hashlib.sha1(gen.encode())
-        hex_dig = hash_object.hexdigest()
+            hex_dig = flag
         result = self.fb.put('/' + category, hex_dig[-15:], data)
         return True
 

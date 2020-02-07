@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-#import utils
+import utils
 #import mongo
 
 app = Flask(__name__, static_url_path='/static')
@@ -32,9 +32,21 @@ def smeindex():
 def core():
     return render_template('/ce/index.html')
 
+
 @app.route("/ce/decision")
 def ce_decision():
+    if 'decision' in request.args:
+        decision = request.args.get('decision')
+        uid = request.args.get('hash')
+        if decision == 'y':
+            intd = request.args.get('intd')
+            utils.update_order(uid, intd)
+
+        else:
+            utils.update_order(uid, False)
+
     return render_template('/ce/approve_order.html')
+
 
 @app.route("/capital")
 def capital():
@@ -43,13 +55,20 @@ def capital():
 
 @app.route("/capital/market")
 def capital_market():
-    return render_template('/cap/marketplace.html')
+    temp = utils.db.get_data('orders')
+    data = {}
+    for i in temp:
+        if temp[i]['approved'] == 'yes':
+            data[i] = temp[i]
+    print(data)
+    return render_template('/cap/marketplace.html', data=data)
 
 
 @app.route("/capital/view/<order>")
 def capital_view(order):
-    print(order)
-    return render_template('/cap/vieworder.html', graph_data=utils.make_line_graph())
+    data = temp = utils.db.get_data('orders/'+order)
+    print(data)
+    return render_template('/cap/vieworder.html', data=data, graph_data=utils.make_line_graph())
 
 
 @app.route("/ce/create")
@@ -82,7 +101,7 @@ def create_order():
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
     sme = request.form['SME']
-    utils.make_order(quote, amount, payment_date, delievery_date, sme)
+    uid = utils.make_order(quote, amount, payment_date, delievery_date, sme)
 #    print(sme,amount,quote,payment_date,delievery_date)
 
     return "Error"
