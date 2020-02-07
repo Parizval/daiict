@@ -8,14 +8,19 @@ class Database:
         self.fb = firebase.FirebaseApplication(
             'https://daiict-db.firebaseio.com/', None)
 
-    def get_data(self, category, unid):
-        ratings = self.fb.get('/ratings', None)
+    def get_data(self, category):
+        data = self.fb.get('/{}'.format(category), None)
+        return data
 
-    def write_data(self, category, data):
-        gen = data['name']
+    def write_data(self, category, data, flag=False):
+        if not flag:
+            gen = data['name']
+        else:
+            gen = flag
         hash_object = hashlib.sha1(gen.encode())
         hex_dig = hash_object.hexdigest()
         result = self.fb.put('/' + category, hex_dig[-15:], data)
+        return True
 
 
 if __name__ == '__main__':

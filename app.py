@@ -27,29 +27,6 @@ def error404(error):
 def smeindex():
     return render_template('/sme/index.html')
 
-@app.route("/sme/order")
-def sme_order():
-    return render_template('/sme/order.html')
-
-@app.route('/sme/approve', methods=['POST'])
-def sme_approve():
-
-    working_capital = request.form['WorkingCapital']
-    capital_deadling = request.form['CapitalDeadline']
-
-    print(working_capital, capital_deadling)
-   
-    return "Error"
-
-@app.route('/sme/reject', methods=['POST'])
-def sme_reject():
-
-    ce = request.form['CE']
-    amount = request.form['Amount']
-    quote = request.form['Quote']
-    print(ce,amount,quote)
-    return "Error"
-
 
 @app.route("/ce")
 def core():
@@ -102,6 +79,7 @@ def create_order():
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
     sme = request.form['SME']
+    utils.make_order(quote, amount, payment_date, delievery_date, sme)
 #    print(sme,amount,quote,payment_date,delievery_date)
 
     return "Error"
