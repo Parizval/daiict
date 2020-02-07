@@ -7,13 +7,16 @@ app = Flask(__name__, static_url_path='/static')
 app.debug = True
 app.secret_key = "Nothing"
 
+
 @app.route("/")
 def index():
     return render_template('index.html')
-    
+
+
 @app.route("/login")
 def Login():
     return render_template('Login.html')
+
 
 @app.errorhandler(404)
 def error404(error):
@@ -24,13 +27,26 @@ def error404(error):
 def smeindex():
     return render_template('/sme/index.html')
 
+
 @app.route("/ce")
 def core():
     return render_template('/ce/index.html')
 
+
 @app.route("/capital")
 def capital():
     return render_template('/cap/index.html')
+
+
+@app.route("/capital/market")
+def capital_market():
+    return render_template('/cap/marketplace.html')
+
+
+@app.route("/capital/view/<order>")
+def capital_view(order):
+    print(order)
+    return render_template('/cap/marketplace.html')
 
 
 @app.route("/ce/create")
@@ -38,19 +54,19 @@ def CreateOrder():
     return render_template('/ce/createorder.html')
 
 
-
 @app.route("/invoice")
 def invoice():
     return render_template('/sme/invoice.html')
-# Login and Sign Up Methods 
+# Login and Sign Up Methods
+
 
 @app.route('/login_action', methods=['POST'])
 def login_action():
 
     email = request.form['email']
     password = request.form['password']
-    print(email,password)
-    if  mongo.Login(email,password):
+    print(email, password)
+    if mongo.Login(email, password):
         return "Sucess"
     return "Error"
 
@@ -62,10 +78,11 @@ def create_order():
     quote = request.form['Quote']
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
-    sme =  request.form['SME']
+    sme = request.form['SME']
 #    print(sme,amount,quote,payment_date,delievery_date)
-    
+
     return "Error"
+
 
 @app.route('/sign_action', methods=['POST'])
 def sign_action():
@@ -75,10 +92,12 @@ def sign_action():
     password = request.form['password']
     category = request.form['category']
 
-    print(name,email,password,category)
-    if mongo.Register(email,name,password,category):
+    print(name, email, password, category)
+    if mongo.Register(email, name, password, category):
         return "Success"
-    
+
     return "Error"
+
+
 if __name__ == "__main__":
     app.run()
