@@ -24,6 +24,9 @@ def error404(error):
 def smeindex():
     return render_template('/sme/index.html')
 
+@app.route("/invoice")
+def invoice():
+    return render_template('/sme/invoice.html')
 # Login and Sign Up Methods 
 
 @app.route('/login_action', methods=['POST'])
