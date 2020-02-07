@@ -27,7 +27,9 @@ def error404(error):
 def smeindex():
     return render_template('/sme/index.html')
 
-
+@app.route("/sme/order")
+def sme_order():
+    return render_template('/sme/order.html')
 @app.route("/ce")
 def core():
     return render_template('/ce/index.html')
