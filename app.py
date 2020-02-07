@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session
-import utils
+#import utils
 #import mongo
 
 app = Flask(__name__, static_url_path='/static')
@@ -32,6 +32,9 @@ def smeindex():
 def core():
     return render_template('/ce/index.html')
 
+@app.route("/ce/decision")
+def ce_decision():
+    return render_template('/ce/approve_order.html')
 
 @app.route("/capital")
 def capital():

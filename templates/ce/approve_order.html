@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Kode is a Premium Bootstrap Admin Template, It's responsive, clean coded and mobile friendly">
+    <meta name="keywords" content="bootstrap, admin, dashboard, flat admin template, responsive," />
+    <title>Marketplace</title>
+
+    <link href="/static/dashboard/css/root.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Start Page Loading -->
+    <div class="loading"><img src="/static/dashboard/img/loading.gif" alt="loading-img"></div>
+    <!-- End Page Loading -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START TOP -->
+    <div id="top" class="clearfix">
+
+        <!-- Start App Logo -->
+        <div class="applogo">
+            <a href="index.html" class="logo">kode</a>
+        </div>
+        <!-- End App Logo -->
+
+        <!-- Start Sidebar Show Hide Button -->
+        <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+        <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+        <!-- End Sidebar Show Hide Button -->
+
+
+
+        <!-- Start Top Right -->
+        <ul class="top-right">
+
+            <li class="dropdown link">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img
+                        src="/static/dashboard/img/profileimg.png" alt="img"><b>Jonathan Doe</b><span
+                        class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+                    <li role="presentation" class="dropdown-header">Profile</li>
+                    <li><a href="#"><i class="fa falist fa-inbox"></i>Inbox<span class="badge label-danger">4</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa falist fa-file-o"></i>Files</a></li>
+                    <li><a href="#"><i class="fa falist fa-wrench"></i>Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li>
+                    <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- End Top Right -->
+
+    </div>
+    <!-- END TOP -->
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!-- START SIDEBAR -->
+    <div class="sidebar clearfix">
+
+        <ul class="sidebar-panel nav">
+            <li class="sidetitle">MAIN</li>
+            <li><a href="index.html"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard<span
+                        class="label label-default">2</span></a></li>
+            <li><a href="mailbox.html"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Mailbox<span
+                        class="label label-default">19</span></a></li>
+            <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>UI Elements<span
+                        class="caret"></span></a>
+                <ul>
+                    <li><a href="icons.html">Icons</a></li>
+                    <li><a href="tabs.html">Tabs</a></li>
+                    <li><a href="buttons.html">Buttons</a></li>
+                    <li><a href="panels.html">Panels</a></li>
+                    <li><a href="notifications.html">Notifications</a></li>
+                    <li><a href="modal-boxes.html">Modal Boxes</a></li>
+                    <li><a href="progress-bars.html">Progress Bars</a></li>
+                    <li><a href="others.html">Others<span class="label label-danger">NEW</span></a></li>
+                </ul>
+            </li>
+            <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>Charts</a></li>
+            <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>Tables<span
+                        class="caret"></span></a>
+                <ul>
+                    <li><a href="basic-table.html">Basic Tables</a></li>
+                    <li><a href="data-table.html">Data Tables</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="icon color10"><i class="fa fa-check-square-o"></i></span>Forms<span
+                        class="caret"></span></a>
+                <ul>
+                    <li><a href="form-elements.html">Form Elements</a></li>
+                    <li><a href="layouts.html">Form Layouts</a></li>
+                    <li><a href="text-editors.html">Text Editors</a></li>
+                </ul>
+            </li>
+            <li><a href="widgets.html"><span class="icon color11"><i class="fa fa-diamond"></i></span>Widgets</a></li>
+            <li><a href="calendar.html"><span class="icon color8"><i class="fa fa-calendar-o"></i></span>Calendar<span
+                        class="label label-danger">NEW</span></a></li>
+            
+        </ul>
+
+
+
+      
+
+    </div>
+    <div class="content">
+        <div class="container-widget">
+            <div class="row">
+
+                <div class="col-md-12 col-lg-12">
+                    <div class="panel panel-widget">
+                        <div class="panel-title">
+                            LAST ORDERS <span class="label label-warning">196</span>
+                        </div>
+
+                        <div class="panel-search">
+                            <form>
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <i class="fa fa-search icon"></i>
+                            </form>
+                        </div>
+
+
+                        <div class="panel-body table-responsive">
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <td>SME</td>
+                                        <td>Quotation</td>
+                                        <td>Amount</td>
+                                        <td>Delievery Date</td>
+                                        <td>Payment Date</td>
+                                        <td>Working Capital</td>
+                                        <td>Insurance on Deafult</td>
+                                        <td colspan="2" style="text-align: center;">Status</td>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="SME" >Kode Gaming Laptop</td>
+                                        <td id="Quotation">John Doe</td>
+                                        <td id="Amount">12/10/2015</td>
+                                        <td>Credit Card</td>
+                                        <td>Credit Card</td>
+                                        <td>10000</td>
+                                        <td>
+                                            <input type="number" id="Insurance" />
+                                        </td>
+                                        <td><button class="btn btn-default" id="Accept">Confirm</button></td>
+                                        <td><button class="btn btn-danger" id="Reject">Decline</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="SME" >Kode Gaming Laptop</td>
+                                        <td id="Quotation">John Doe</td>
+                                        <td id="Amount">12/10/2015</td>
+                                        <td>Credit Card</td>
+                                        <td>Credit Card</td>
+                                        <td>10000</td>
+                                        <td>
+                                            <input type="number" id="Insurance" />
+                                        </td>
+                                        <td><button class="btn btn-default" id="Accept">Confirm</button></td>
+                                        <td><button class="btn btn-danger" id="Reject">Decline</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      
+    </div>
+    <script type="text/javascript" src="/static/dashboard/js/jquery.min.js"></script>
+    <script src="/static/dashboard/js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/dashboard/js/plugins.js"></script>
+
+    <script type="text/javascript" src="/static/dashboard/js/bootstrap-select/bootstrap-select.js"></script>
+
+    <script type="text/javascript" src="/static/dashboard/js/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="/static/dashboard/js/bootstrap-wysihtml5/wysihtml5-0.3.0.min.js"></script>
+    <script type="text/javascript" src="/static/dashboard/js/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+
+    <script type="text/javascript" src="/static/dashboard/js/summernote/summernote.min.js"></script>
+    
+    <!-- ================================================
+Data Tables
+================================================ -->
+    <script src="/static/dashboard/js/datatables/datatables.min.js"></script>
+
+  
+    <script src="/static/dashboard/js/sweet-alert/sweet-alert.min.js"></script>
+
+  
+    <script src="/static/dashboard/js/kode-alert/main.js"></script>
+
+  
+    <script type="text/javascript" src="/static/dashboard/js/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- ================================================
+Moment.js
+================================================ -->
+    <script type="text/javascript" src="/static/dashboard/js/moment/moment.min.js"></script>
+
+    <!-- ================================================
+Full Calendar
+================================================ -->
+    <script type="text/javascript" src="/static/dashboard/js/full-calendar/fullcalendar.js"></script>
+
+    <!-- ================================================
+Bootstrap Date Range Picker
+================================================ -->
+    <script type="text/javascript" src="/static/dashboard/js/date-range-picker/daterangepicker.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#date-picker').daterangepicker({ singleDatePicker: true }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+
+           
+        });
+    </script>
+
+<script>
+
+    $(document).ready(
+
+        function () {
+
+            $('#Accept').on('click', function (event) {
+
+                $.ajax({
+                    data: {
+                        
+                        WorkingCapital: $("#WorkingCapital").val(),
+                        CapitalDeadline: $('#date-picker').val()
+                        
+                    },
+                    type: "POST",
+                    url: '/sme/approve'
+                })
+                    .done(function (data) {
+                        if (data.error) {
+                            alert("Error")
+                        }
+                        else {
+                            //    $(location).attr('href', '/Dash')
+
+                            alert("Success");
+                        }
+                    });
+
+                event.preventDefault();
+
+            });
+
+            $('#Reject').on('click', function (event) {
+
+            $.ajax({
+                data: {
+                    CE: $("#Buyer").text(),
+                    Amount: $("#Amount").text(),
+                    Quote: $("#Quotation").text()
+                },
+                type: "POST",
+                url: '/sme/reject'
+            })
+                .done(function (data) {
+                    if (data.error) {
+                        alert("Error")
+                    }
+                    else {
+                        //    $(location).attr('href', '/Dash')
+
+                        alert("Success");
+                    }
+                });
+
+event.preventDefault();
+
+});
+
+        });
+</script>
+
+</body>
+
+</html>
