@@ -29,3 +29,11 @@
 ![](https://github.com/Parizval/daiict/tree/master/static/img/bootstrap.jpg)  
 ![](https://github.com/Parizval/daiict/tree/master/static/img/MongoDb.png)  
 ![](https://github.com/Parizval/daiict/tree/master/static/img/connection.png)
+
+## **Developers**
+
+1. [Devyanshu Shukla](https://github.com/Devyanshu)
+
+2. [Michael George](https://github.com/mg4603)
+
+3. [Anmol Goyal](https://github.com/Parizval)
