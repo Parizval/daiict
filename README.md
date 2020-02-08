@@ -18,5 +18,5 @@
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; In Detail:
 &nbsp;&nbsp;&nbsp;&nbsp; 1) The buyer will raise a request to a specific SME when required.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; 2) <br/>
+&nbsp;&nbsp;&nbsp;&nbsp; 2)  hjmjhjk,  <br>
 
