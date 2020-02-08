@@ -86,6 +86,18 @@ def update_order_ce(uid, insurance):
     db.write_data('orders', old_data, flag=uid)
 
 
+def submit_request(sme, ceid):
+    hash = hashlib.sha1(str(time.time()).encode())
+    hex_dig = hash.hexdigest()
+    uid = hex_dig[-15:]
+    db.write_data('requests', {
+        'ceid': ceid,
+        'sme': sme,
+        'accepted': 'no'
+    }, flag=uid)
+    return True
+
+
 def make_line_graph():
     graph = pygal.Line()
     graph.title = '% Change Coolness of programming languages over time.'

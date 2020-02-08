@@ -35,6 +35,34 @@ def smeindex():
     return render_template('/sme/index.html')
 
 
+@app.route("/sme/request")
+def sme_request_to_ce():
+    sme = 'test'
+    data = utils.db.get_data('enterprises')
+    submitted = utils.db.get_data('requests')
+    entp = utils.db.get_data('enterprises')
+    cd = {}
+    for i in submitted:
+        if submitted[i]['sme'] == sme:
+            class_name = "right label label-success" if submitted[i]['accepted'] == 'yes' else "right label label-danger"
+            label = "Accepted" if submitted[i]['accepted'] == 'yes' else "Not Accepted"
+            name = entp[submitted[i]['ceid']]['name']
+            cd[i] = {
+                'class': class_name,
+                'name': name,
+                'label': label
+            }
+    return render_template('/sme/request.html', data=data, submitted=cd)
+
+
+@app.route("/sme/request/submit", methods=['POST'])
+def submit_sme_request():
+    sme = 'test'
+    ceid = request.form['sme']
+    utils.submit_request(sme, ceid)
+    return ''
+
+
 @app.route("/sme/decision")
 def sme_decision():
     temp = utils.db.get_data('orders')
