@@ -32,7 +32,14 @@ def sme_invoice(order):
 
 @app.route("/sme")
 def smeindex():
-    return render_template('/sme/index.html')
+    sme = '06b1a480720d443'
+    temp = utils.db.get_data('orders')
+    orders = {}
+    for i in temp:
+        if temp[i]['sme'] == sme:
+            orders[i] = temp[i]
+    print(orders)
+    return render_template('/sme/index.html', data=orders)
 
 
 @app.route("/sme/request")
@@ -161,22 +168,25 @@ def capital_view(order):
 
 @app.route("/ce/create")
 def CreateOrder():
-    ce = '85e76bf6703f594'
+    ce = '9f4b705b6f9d7c8'
     joined = utils.db.get_data('enterprises/{}'.format(ce))
     smes = utils.db.get_data('sme')
     lst = joined['smes']
     print(lst)
     cp = {}
     for i in lst:
-        cp[i] = {
-            'name': smes[i]['name']
-        }
+        try:
+            cp[i] = {
+                'name': smes[i]['name']
+            }
+        except:
+            pass
     return render_template('/ce/createorder.html', smes=cp)
 
 
 @app.route("/ce/accept")
 def acceptsme():
-    ce = '85e76bf6703f594'
+    ce = '9f4b705b6f9d7c8'
     submitted = utils.db.get_data('requests')
     smes = utils.db.get_data('sme')
     cd = {}
@@ -193,7 +203,7 @@ def acceptsme():
 
 @app.route("/ce/accept/submit", methods=['POST'])
 def submit_sme_accept():
-    ce = '85e76bf6703f594'
+    ce = '9f4b705b6f9d7c8'
     hashc = request.form['HashCode']
     flag = request.form['flag']
     if flag == 'true':
@@ -217,7 +227,7 @@ def login_action():
 
 @app.route('/create_order', methods=['POST'])
 def create_order():
-    ce = '85e76bf6703f594'
+    ce = '9f4b705b6f9d7c8'
     ce_name = 'Reliance Pvt Limited'
     amount = request.form['Amount']
     quote = request.form['Quote']

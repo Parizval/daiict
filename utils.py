@@ -105,7 +105,7 @@ def add_sme(ceid, sme):
     if tmp is None:
         old_data['smes'] = [sme]
     else:
-        tmp = [old_data['smes'][i] for i in old_data['smes']]
+        tmp = [ i for i in old_data['smes']]
         tmp += [sme]
         old_data['smes'] = tmp
     db.write_data('enterprises', old_data, ceid)
