@@ -20,3 +20,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp; 1) The buyer will raise a request to a specific SME when required.<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; 2)  hjmjhjk,  <br>
 
+
+### **Technology Stack**
+
+![](https://github.com/Parizval/daiict/tree/master/static/img/python.png)  
+![](https://github.com/Parizval/daiict/tree/master/static/img/javascript.png)  
+![](https://github.com/Parizval/daiict/tree/master/static/img/browser.png)  
+![](https://github.com/Parizval/daiict/tree/master/static/img/bootstrap.jpg)  
+![](https://github.com/Parizval/daiict/tree/master/static/img/MongoDb.png)  
+![](https://github.com/Parizval/daiict/tree/master/static/img/connection.png)
