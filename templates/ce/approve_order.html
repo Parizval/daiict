@@ -105,12 +105,12 @@
             <li><a href="widgets.html"><span class="icon color11"><i class="fa fa-diamond"></i></span>Widgets</a></li>
             <li><a href="calendar.html"><span class="icon color8"><i class="fa fa-calendar-o"></i></span>Calendar<span
                         class="label label-danger">NEW</span></a></li>
-            
+
         </ul>
 
 
 
-      
+
 
     </div>
     <div class="content">
@@ -120,7 +120,7 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="panel panel-widget">
                         <div class="panel-title">
-                            LAST ORDERS <span class="label label-warning">196</span>
+                            LAST ORDERS <span class="label label-warning">{{data|length}}</span>
                         </div>
 
                         <div class="panel-search">
@@ -144,36 +144,29 @@
                                         <td>Working Capital</td>
                                         <td>Insurance on Deafult</td>
                                         <td colspan="2" style="text-align: center;">Status</td>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for i in data %}
                                     <tr>
-                                        <td id="SME" >Kode Gaming Laptop</td>
-                                        <td id="Quotation">John Doe</td>
-                                        <td id="Amount">12/10/2015</td>
-                                        <td>Credit Card</td>
-                                        <td>Credit Card</td>
+                                        <td id="SME">{{data[i].sme}}</td>
+                                        <td id="Quotation">{{data[i].quote}}</td>
+                                        <td id="Amount">₹{{data[i].amount}}</td>
+                                        <td>{{data[i].delivery_date}}</td>
+                                        <td>{{data[i].payment_date}}</td>
                                         <td>10000</td>
                                         <td>
-                                            <input type="number" id="Insurance" />
+                                            <input type="number" id="insurance" />
                                         </td>
-                                        <td><button class="btn btn-default" id="Accept">Confirm</button></td>
-                                        <td><button class="btn btn-danger" id="Reject">Decline</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td id="SME" >Kode Gaming Laptop</td>
-                                        <td id="Quotation">John Doe</td>
-                                        <td id="Amount">12/10/2015</td>
-                                        <td>Credit Card</td>
-                                        <td>Credit Card</td>
-                                        <td>10000</td>
-                                        <td>
-                                            <input type="number" id="Insurance" />
+                                        <td><button class="btn btn-default" id="Accept"
+                                                onclick="location.href='/ce/decision?decision=y&hash={{i}}&intd=' + document.getElementById('insurance').value">Confirm</button>
                                         </td>
-                                        <td><button class="btn btn-default" id="Accept">Confirm</button></td>
-                                        <td><button class="btn btn-danger" id="Reject">Decline</button></td>
+                                        <td><button class="btn btn-danger" id="Reject"
+                                                onclick="location.href='/ce/decision?decision=n&hash={{i}}'">Decline</button>
+                                        </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -183,7 +176,7 @@
             </div>
 
         </div>
-      
+
     </div>
     <script type="text/javascript" src="/static/dashboard/js/jquery.min.js"></script>
     <script src="/static/dashboard/js/bootstrap/bootstrap.min.js"></script>
@@ -196,19 +189,19 @@
     <script type="text/javascript" src="/static/dashboard/js/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
 
     <script type="text/javascript" src="/static/dashboard/js/summernote/summernote.min.js"></script>
-    
+
     <!-- ================================================
 Data Tables
 ================================================ -->
     <script src="/static/dashboard/js/datatables/datatables.min.js"></script>
 
-  
+
     <script src="/static/dashboard/js/sweet-alert/sweet-alert.min.js"></script>
 
-  
+
     <script src="/static/dashboard/js/kode-alert/main.js"></script>
 
-  
+
     <script type="text/javascript" src="/static/dashboard/js/jquery-ui/jquery-ui.min.js"></script>
 
     <!-- ================================================
@@ -234,71 +227,71 @@ Bootstrap Date Range Picker
                 console.log(start.toISOString(), end.toISOString(), label);
             });
 
-           
+
         });
     </script>
 
-<script>
+    <script>
 
-    $(document).ready(
+        $(document).ready(
 
-        function () {
+            function () {
 
-            $('#Accept').on('click', function (event) {
+                $('#Accept').on('click', function (event) {
 
-                $.ajax({
-                    data: {
-                        
-                        WorkingCapital: $("#WorkingCapital").val(),
-                        CapitalDeadline: $('#date-picker').val()
-                        
-                    },
-                    type: "POST",
-                    url: '/sme/approve'
-                })
-                    .done(function (data) {
-                        if (data.error) {
-                            alert("Error")
-                        }
-                        else {
-                            //    $(location).attr('href', '/Dash')
+                    $.ajax({
+                        data: {
 
-                            alert("Success");
-                        }
-                    });
+                            WorkingCapital: $("#WorkingCapital").val(),
+                            CapitalDeadline: $('#date-picker').val()
 
-                event.preventDefault();
+                        },
+                        type: "POST",
+                        url: '/sme/approve'
+                    })
+                        .done(function (data) {
+                            if (data.error) {
+                                alert("Error")
+                            }
+                            else {
+                                //    $(location).attr('href', '/Dash')
 
-            });
+                                alert("Success");
+                            }
+                        });
 
-            $('#Reject').on('click', function (event) {
+                    event.preventDefault();
 
-            $.ajax({
-                data: {
-                    CE: $("#Buyer").text(),
-                    Amount: $("#Amount").text(),
-                    Quote: $("#Quotation").text()
-                },
-                type: "POST",
-                url: '/sme/reject'
-            })
-                .done(function (data) {
-                    if (data.error) {
-                        alert("Error")
-                    }
-                    else {
-                        //    $(location).attr('href', '/Dash')
-
-                        alert("Success");
-                    }
                 });
 
-event.preventDefault();
+                $('#Reject').on('click', function (event) {
 
-});
+                    $.ajax({
+                        data: {
+                            CE: $("#Buyer").text(),
+                            Amount: $("#Amount").text(),
+                            Quote: $("#Quotation").text()
+                        },
+                        type: "POST",
+                        url: '/sme/reject'
+                    })
+                        .done(function (data) {
+                            if (data.error) {
+                                alert("Error")
+                            }
+                            else {
+                                //    $(location).attr('href', '/Dash')
 
-        });
-</script>
+                                alert("Success");
+                            }
+                        });
+
+                    event.preventDefault();
+
+                });
+
+            });
+    </script>
 
 </body>
 

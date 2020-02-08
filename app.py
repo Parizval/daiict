@@ -35,6 +35,11 @@ def core():
 
 @app.route("/ce/decision")
 def ce_decision():
+    temp = utils.db.get_data('orders')
+    data = {}
+    for i in temp:
+        if temp[i]['approved'] == 'no' and 'invested' not in temp[i]:
+            data[i] = temp[i]
     if 'decision' in request.args:
         decision = request.args.get('decision')
         uid = request.args.get('hash')
@@ -44,8 +49,9 @@ def ce_decision():
 
         else:
             utils.update_order(uid, False)
-
-    return render_template('/ce/approve_order.html')
+        return redirect('/ce/decision')
+    else:
+        return render_template('/ce/approve_order.html', data=data)
 
 
 @app.route("/capital")
@@ -58,7 +64,7 @@ def capital_market():
     temp = utils.db.get_data('orders')
     data = {}
     for i in temp:
-        if temp[i]['approved'] == 'yes':
+        if temp[i]['approved'] == 'yes' and 'invested' not in temp[i]:
             data[i] = temp[i]
     print(data)
     return render_template('/cap/marketplace.html', data=data)
