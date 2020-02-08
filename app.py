@@ -234,16 +234,16 @@ def CreateOrder():
     ce = session['hash']
     joined = utils.db.get_data('enterprises/{}'.format(ce))
     smes = utils.db.get_data('sme')
-    lst = joined['smes']
-    print(lst)
     cp = {}
-    for i in lst:
-        try:
-            cp[i] = {
-                'name': smes[i]['name']
-            }
-        except:
-            pass
+    if 'smes' in joined:
+        lst = joined['smes']
+        for i in lst:
+            try:
+                cp[i] = {
+                    'name': smes[i]['name']
+                }
+            except:
+                pass
     return render_template('/ce/createorder.html', smes=cp)
 
 
