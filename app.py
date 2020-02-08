@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import utils
 import mongo
+import hashlib
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -16,14 +17,16 @@ def index():
 @app.route("/login")
 def Login():
     if "name" in session:
-        link_map = {'SME':'/sme','CE':'/ce',"Capitalist":'/capital'}
+        link_map = {'SME': '/sme', 'CE': '/ce', "Capitalist": '/capital'}
         return redirect(link_map[session['category']])
     return render_template('Login.html')
+
 
 @app.route("/logout")
 def exit():
     session.clear()
     return redirect("/")
+
 
 @app.errorhandler(404)
 def error404(error):
@@ -32,7 +35,7 @@ def error404(error):
 
 @app.route("/sme/invoice/<order>")
 def sme_invoice(order):
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "SME":
         return redirect("/")
@@ -44,11 +47,10 @@ def sme_invoice(order):
 
 @app.route("/sme")
 def smeindex():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "SME":
         return redirect("/")
-        
 
     sme = '06b1a480720d443'
     temp = utils.db.get_data('orders')
@@ -62,12 +64,12 @@ def smeindex():
 
 @app.route("/sme/request")
 def sme_request_to_ce():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
 
     if session['category'] != "SME":
         return redirect("/")
-        
+
     sme = '21f9cb3371a23b7'
     submitted = utils.db.get_data('requests')
     entp = utils.db.get_data('enterprises')
@@ -96,12 +98,11 @@ def submit_sme_request():
 
 @app.route("/sme/decision")
 def sme_decision():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "SME":
         return redirect("/")
-    
-        
+
     temp = utils.db.get_data('orders')
     data = {}
     for i in temp:
@@ -129,22 +130,21 @@ def sme_reject():
 
 @app.route("/ce")
 def core():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "CE":
         return redirect("/")
-    
-        
+
     return render_template('/ce/index.html')
 
 
 @app.route("/ce/decision")
 def ce_decision():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "CE":
         return redirect("/")
-        
+
     temp = utils.db.get_data('orders')
     data = {}
     for i in temp:
@@ -166,7 +166,7 @@ def ce_decision():
 
 @app.route('/ce/approve', methods=['POST'])
 def ce_approve():
-    
+
     hash_number = request.form['HashCode']
     insurance = request.form['Insurance']
     print(hash_number, insurance)
@@ -183,8 +183,8 @@ def ce_reject():
 
 @app.route("/capital")
 def capital():
-    if  "name" not in session:
-        return redirect("/")    
+    if "name" not in session:
+        return redirect("/")
     if session['category'] != "Capitalist":
         return redirect("/")
 
@@ -193,12 +193,11 @@ def capital():
 
 @app.route("/capital/market")
 def capital_market():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
     if session['category'] != "Capitalist":
         return redirect("/")
-        
-    
+
     temp = utils.db.get_data('orders')
     smes = utils.db.get_data('sme')
     sm = {}
@@ -214,12 +213,12 @@ def capital_market():
 
 @app.route("/capital/view/<order>")
 def capital_view(order):
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
 
     if session['category'] != "Capitalist":
         return redirect("/")
-    
+
     data = temp = utils.db.get_data('orders/'+order)
     sme_name = utils.db.get_data('sme/'+data['sme'])['name']
     return render_template('/cap/vieworder.html', data=data, graph_data1=utils.make_line_graph1(), graph_data2=utils.make_line_graph2(), smename=sme_name)
@@ -227,11 +226,10 @@ def capital_view(order):
 
 @app.route("/ce/create")
 def CreateOrder():
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
-    if session['category'] != "Capitalist":
+    if session['category'] != "CE":
         return redirect("/")
-    
 
     ce = '9f4b705b6f9d7c8'
     joined = utils.db.get_data('enterprises/{}'.format(ce))
@@ -252,12 +250,11 @@ def CreateOrder():
 @app.route("/ce/accept")
 def acceptsme():
 
-    if  "name" not in session:
+    if "name" not in session:
         return redirect("/")
-    if session['category'] != "Capitalist":
+    if session['category'] != "CE":
         return redirect("/")
-    
-    
+
     ce = '9f4b705b6f9d7c8'
     submitted = utils.db.get_data('requests')
     smes = utils.db.get_data('sme')
@@ -293,13 +290,14 @@ def login_action():
     password = request.form['password']
     print(email, password)
     data = mongo.Login(email, password)
-    
-    link_map = {'SME':'/sme','CE':'/ce',"Capitalist":'/capital'}
 
-    if  data['check']:
-        data['link'] =  link_map[data['category']]
+    link_map = {'SME': '/sme', 'CE': '/ce', "Capitalist": '/capital'}
+
+    if data['check']:
+        data['link'] = link_map[data['category']]
         session['name'] = data['name']
         session['category'] = data['category']
+        session['hash'] = data['hash']
         return data
     return data
 
@@ -326,9 +324,15 @@ def sign_action():
     email = request.form['email']
     password = request.form['password']
     category = request.form['category']
-
+    hash_object = hashlib.sha1(email.encode())
+    hashc = hash_object.hexdigest()[-15:]
+    myc = {'Capitalist': 'investors', 'CE': 'enterprises', 'SME': 'sme'}
     print(name, email, password, category)
-    if mongo.Register(email, name, password, category):
+    if mongo.Register(email, name, password, category, hashc):
+        utils.db.write_data(myc[category], {
+            'name': name,
+            'email': email
+        }, hashc)
         return "Success"
 
     return "Error"
