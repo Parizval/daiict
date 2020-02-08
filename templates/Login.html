@@ -395,12 +395,12 @@ function () {
                     url : '/sign_action'
           })
               .done(function(data){
-                  if (data.error)
+                  if (data.check)
                   {
-                      alert("Error")
+					$(location).attr('href', data.link)
                   }
                   else{
-                    //   $(location).attr('href', '/')
+                    //   
 					alert("Register")
                   }
               });

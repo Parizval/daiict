@@ -326,16 +326,25 @@ def sign_action():
     category = request.form['category']
     hash_object = hashlib.sha1(email.encode())
     hashc = hash_object.hexdigest()[-15:]
+    
     myc = {'Capitalist': 'investors', 'CE': 'enterprises', 'SME': 'sme'}
+    link_map = {'SME': '/sme', 'CE': '/ce', "Capitalist": '/capital'}
+    
+    data = {}
+    data['check'] = False
+
     print(name, email, password, category)
     if mongo.Register(email, name, password, category, hashc):
         utils.db.write_data(myc[category], {
             'name': name,
             'email': email
         }, hashc)
-        return "Success"
 
-    return "Error"
+        data['check'] = True
+        data['link'] = link_map[data['category']]
+        return data
+
+    return data
 
 
 if __name__ == "__main__":
