@@ -39,10 +39,10 @@ def sme_invoice(order):
         return redirect("/")
     if session['category'] != "SME":
         return redirect("/")
-
+    name = session['name']
     data = utils.db.get_data('orders/'+order)
     sme_name = utils.db.get_data('sme/'+data['sme'])['name']
-    return render_template('/sme/invoice.html', data=data, id=order, sme_name=sme_name)
+    return render_template('/sme/invoice.html', data=data, id=order, sme_name=sme_name, name=name)
 
 
 @app.route("/sme")
@@ -53,13 +53,14 @@ def smeindex():
         return redirect("/")
 
     sme = session['hash']
+    name = session['name']
     temp = utils.db.get_data('orders')
     orders = {}
     for i in temp:
         if temp[i]['sme'] == sme:
             orders[i] = temp[i]
     print(orders)
-    return render_template('/sme/index.html', data=orders)
+    return render_template('/sme/index.html', data=orders, name=name)
 
 
 @app.route("/sme/request")
@@ -71,6 +72,7 @@ def sme_request_to_ce():
         return redirect("/")
 
     sme = session['hash']
+
     submitted = utils.db.get_data('requests')
     entp = utils.db.get_data('enterprises')
     cd = {}
@@ -85,7 +87,7 @@ def sme_request_to_ce():
                     'name': name,
                     'label': label
                 }
-    return render_template('/sme/request.html', data=entp, submitted=cd)
+    return render_template('/sme/request.html', data=entp, submitted=cd, name=session['name'])
 
 
 @app.route("/sme/request/submit", methods=['POST'])
@@ -109,7 +111,7 @@ def sme_decision():
         if temp[i]['sme_approved'] == 'no' and 'invested' not in temp[i]:
             data[i] = temp[i]
     # print(data)
-    return render_template('/sme/order.html', data=data)
+    return render_template('/sme/order.html', data=data, name=session['name'])
 
 
 @app.route('/sme/approve', methods=['POST'])
@@ -135,7 +137,7 @@ def core():
     if session['category'] != "CE":
         return redirect("/")
 
-    return render_template('/ce/index.html')
+    return render_template('/ce/index.html', name=session['name'])
 
 
 @app.route("/ce/decision")
@@ -161,7 +163,7 @@ def ce_decision():
             utils.update_order(uid, False)
         return redirect('/ce/decision')
     else:
-        return render_template('/ce/approve_order.html', data=data)
+        return render_template('/ce/approve_order.html', data=data, name=session['name'])
 
 
 @app.route('/ce/approve', methods=['POST'])
@@ -188,7 +190,7 @@ def capital():
     if session['category'] != "Capitalist":
         return redirect("/")
 
-    return render_template('/cap/index.html')
+    return render_template('/cap/index.html', name=session['name'])
 
 
 @app.route("/capital/market")
@@ -208,7 +210,7 @@ def capital_market():
     sms = [data[i]['sme'] for i in data]
     for i in sms:
         sm[i] = smes[i]['name']
-    return render_template('/cap/marketplace.html', data=data, smemap=sm)
+    return render_template('/cap/marketplace.html', data=data, smemap=sm, name=session['name'])
 
 
 @app.route("/capital/view/<order>")
@@ -221,7 +223,7 @@ def capital_view(order):
 
     data = temp = utils.db.get_data('orders/'+order)
     sme_name = utils.db.get_data('sme/'+data['sme'])['name']
-    return render_template('/cap/vieworder.html', data=data, graph_data1=utils.make_line_graph1(), graph_data2=utils.make_line_graph2(), smename=sme_name)
+    return render_template('/cap/vieworder.html', data=data, graph_data1=utils.make_line_graph1(), graph_data2=utils.make_line_graph2(), smename=sme_name, name=session['name'])
 
 
 @app.route("/ce/create")
@@ -267,7 +269,7 @@ def acceptsme():
                 'name': name,
                 'sme': submitted[i]['sme']
             }
-    return render_template('/ce/accept.html', data=cd)
+    return render_template('/ce/accept.html', data=cd, name=session['name'])
 
 
 @app.route("/ce/accept/submit", methods=['POST'])
