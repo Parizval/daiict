@@ -105,20 +105,29 @@ def add_sme(ceid, sme):
     if tmp is None:
         old_data['smes'] = [sme]
     else:
-        tmp = [ i for i in old_data['smes']]
+        tmp = [i for i in old_data['smes']]
         tmp += [sme]
         old_data['smes'] = tmp
     db.write_data('enterprises', old_data, ceid)
     return True
 
 
-def make_line_graph():
+def make_line_graph1():
     graph = pygal.Line()
-    graph.title = '% Change Coolness of programming languages over time.'
-    graph.x_labels = ['2011', '2012', '2013', '2014', '2015', '2016']
-    graph.add('Python',  [15, 31, 89, 200, 356, 800])
-    graph.add('Java',    [15, 45, 76, 80,  91,  95])
-    graph.add('All others combined!',  [5, 15, 21, 55, 92, 105])
+    graph.title = 'Past performance of the SME'
+    graph.x_labels = ['Aug 2019', 'Sept 2019',
+                      'Oct 2019', 'Nov 2019', 'Dec 2019', 'Jan 2020']
+    graph.add('Amount',  [45000, 70000, 100000, 50000, 120000, 55000])
+    graph_data = graph.render_data_uri()
+    return graph_data
+
+
+def make_line_graph2():
+    graph = pygal.Line()
+    graph.title = 'Past performance of the SME'
+    graph.x_labels = ['Aug 2019', 'Sept 2019',
+                      'Oct 2019', 'Nov 2019', 'Dec 2019', 'Jan 2020']
+    graph.add('Working Capital', [10000, 18000, 25000, 20000, 40000, 21000])
     graph_data = graph.render_data_uri()
     return graph_data
 

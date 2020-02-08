@@ -163,7 +163,7 @@ def capital_market():
 def capital_view(order):
     data = temp = utils.db.get_data('orders/'+order)
     sme_name = utils.db.get_data('sme/'+data['sme'])['name']
-    return render_template('/cap/vieworder.html', data=data, graph_data=utils.make_line_graph(), smename=sme_name)
+    return render_template('/cap/vieworder.html', data=data, graph_data1=utils.make_line_graph1(), graph_data2=utils.make_line_graph2(), smename=sme_name)
 
 
 @app.route("/ce/create")
