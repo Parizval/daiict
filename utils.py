@@ -65,7 +65,7 @@ def update_order(uid, approval):
     old_data = db.get_data('orders/{}'.format(uid))
     if approval:
         old_data['approved'] = 'yes'
-        old_data['interest'] = approval
+        old_data['insurance'] = approval
         db.write_data('orders', old_data, flag=uid)
     else:
         db.write_data('orders', {}, flag=uid)

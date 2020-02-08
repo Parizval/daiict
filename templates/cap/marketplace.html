@@ -118,7 +118,9 @@
                                         <td>SME</td>
                                         <td>Amount</td>
                                         <td>Payment date</td>
-                                        <td>Interest</td>
+                                        <td>Delivery date</td>
+                                        <td>Insurance</td>
+                                        <!-- <td>Interest</td> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,7 +132,9 @@
                                         <td>{{data[i].sme}}</td>
                                         <td>{{data[i].amount}}</td>
                                         <td>{{data[i].payment_date}}</td>
+                                        <td>{{data[i].delivery_date}}</td>
                                         <td>{{data[i].interest}}</td>
+                                        <!-- <td>{{data[i].interest}}</td> -->
                                         <td><a href='/capital/view/{{i}}'>View</a></td>
                                     </tr>
                                     {% endif %}
