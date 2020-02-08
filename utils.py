@@ -44,7 +44,7 @@ def update_ce(name, sme):
     })
 
 
-def make_order(quote, amount, pd, dd, sme, ce='test'):
+def make_order(quote, amount, pd, dd, sme, ce='test', ce_name='test'):
     hash = hashlib.sha1(str(time.time()).encode())
     hex_dig = hash.hexdigest()
     uid = hex_dig[-15:]
@@ -55,6 +55,7 @@ def make_order(quote, amount, pd, dd, sme, ce='test'):
         'delivery_date': dd,
         'sme': sme,
         'ce': ce,
+        'cename': ce_name,
         'approved': 'no',
         'sme_approved': 'no'
     }, flag=uid)
@@ -95,6 +96,19 @@ def submit_request(sme, ceid):
         'sme': sme,
         'accepted': 'no'
     }, flag=uid)
+    return True
+
+
+def add_sme(ceid, sme):
+    old_data = db.get_data('enterprises/{}'.format(ceid))
+    tmp = old_data.get('smes', None)
+    if tmp is None:
+        old_data['smes'] = [sme]
+    else:
+        tmp = [old_data['smes'][i] for i in old_data['smes']]
+        tmp += [sme]
+        old_data['smes'] = tmp
+    db.write_data('enterprises', old_data, ceid)
     return True
 
 

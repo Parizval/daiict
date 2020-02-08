@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import utils
-#import mongo
+# import mongo
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -26,8 +26,8 @@ def error404(error):
 @app.route("/sme/invoice/<order>")
 def sme_invoice(order):
     data = utils.db.get_data('orders/'+order)
-    print(order)
-    return render_template('/sme/invoice.html', data=data, id=order)
+    sme_name = utils.db.get_data('sme/'+data['sme'])['name']
+    return render_template('/sme/invoice.html', data=data, id=order, sme_name=sme_name)
 
 
 @app.route("/sme")
@@ -37,27 +37,27 @@ def smeindex():
 
 @app.route("/sme/request")
 def sme_request_to_ce():
-    sme = 'test'
-    data = utils.db.get_data('enterprises')
+    sme = '21f9cb3371a23b7'
     submitted = utils.db.get_data('requests')
     entp = utils.db.get_data('enterprises')
     cd = {}
-    for i in submitted:
-        if submitted[i]['sme'] == sme:
-            class_name = "right label label-success" if submitted[i]['accepted'] == 'yes' else "right label label-danger"
-            label = "Accepted" if submitted[i]['accepted'] == 'yes' else "Not Accepted"
-            name = entp[submitted[i]['ceid']]['name']
-            cd[i] = {
-                'class': class_name,
-                'name': name,
-                'label': label
-            }
-    return render_template('/sme/request.html', data=data, submitted=cd)
+    if submitted is not None:
+        for i in submitted:
+            if submitted[i]['sme'] == sme:
+                class_name = "right label label-success" if submitted[i]['accepted'] == 'yes' else "right label label-danger"
+                label = "Accepted" if submitted[i]['accepted'] == 'yes' else "Not Accepted"
+                name = entp[submitted[i]['ceid']]['name']
+                cd[i] = {
+                    'class': class_name,
+                    'name': name,
+                    'label': label
+                }
+    return render_template('/sme/request.html', data=entp, submitted=cd)
 
 
 @app.route("/sme/request/submit", methods=['POST'])
 def submit_sme_request():
-    sme = 'test'
+    sme = '21f9cb3371a23b7'
     ceid = request.form['sme']
     utils.submit_request(sme, ceid)
     return ''
@@ -140,30 +140,68 @@ def capital():
 @app.route("/capital/market")
 def capital_market():
     temp = utils.db.get_data('orders')
+    smes = utils.db.get_data('sme')
+    sm = {}
     data = {}
     for i in temp:
         if temp[i]['approved'] == 'yes' and 'invested' not in temp[i]:
             data[i] = temp[i]
-    print(data)
-    return render_template('/cap/marketplace.html', data=data)
+    sms = [data[i]['sme'] for i in data]
+    for i in sms:
+        sm[i] = smes[i]['name']
+    return render_template('/cap/marketplace.html', data=data, smemap=sm)
 
 
 @app.route("/capital/view/<order>")
 def capital_view(order):
     data = temp = utils.db.get_data('orders/'+order)
-    print(data)
-    return render_template('/cap/vieworder.html', data=data, graph_data=utils.make_line_graph())
+    sme_name = utils.db.get_data('sme/'+data['sme'])['name']
+    return render_template('/cap/vieworder.html', data=data, graph_data=utils.make_line_graph(), smename=sme_name)
 
 
 @app.route("/ce/create")
 def CreateOrder():
-    return render_template('/ce/createorder.html')
+    ce = '85e76bf6703f594'
+    joined = utils.db.get_data('enterprises/{}'.format(ce))
+    smes = utils.db.get_data('sme')
+    lst = joined['smes']
+    print(lst)
+    cp = {}
+    for i in lst:
+        cp[i] = {
+            'name': smes[i]['name']
+        }
+    return render_template('/ce/createorder.html', smes=cp)
 
 
-@app.route("/invoice")
-def invoice():
-    return render_template('/sme/invoice.html')
-# Login and Sign Up Methods
+@app.route("/ce/accept")
+def acceptsme():
+    ce = '85e76bf6703f594'
+    submitted = utils.db.get_data('requests')
+    smes = utils.db.get_data('sme')
+    cd = {}
+    for i in submitted:
+        if submitted[i]['ceid'] == ce:
+            label = "Accepted" if submitted[i]['accepted'] == 'yes' else "Not Accepted"
+            name = smes[submitted[i]['sme']]['name']
+            cd[i] = {
+                'name': name,
+                'sme': submitted[i]['sme']
+            }
+    return render_template('/ce/accept.html', data=cd)
+
+
+@app.route("/ce/accept/submit", methods=['POST'])
+def submit_sme_accept():
+    ce = '85e76bf6703f594'
+    hashc = request.form['HashCode']
+    flag = request.form['flag']
+    if flag == 'true':
+        sme = request.form['sme']
+        utils.add_sme(ce, sme)
+    print(hashc)
+    utils.db.write_data('requests', {}, hashc)
+    return ''
 
 
 @app.route('/login_action', methods=['POST'])
@@ -179,14 +217,15 @@ def login_action():
 
 @app.route('/create_order', methods=['POST'])
 def create_order():
-
+    ce = '85e76bf6703f594'
+    ce_name = 'Reliance Pvt Limited'
     amount = request.form['Amount']
     quote = request.form['Quote']
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
     sme = request.form['SME']
-    uid = utils.make_order(quote, amount, payment_date, delievery_date, sme)
-#    print(sme,amount,quote,payment_date,delievery_date)
+    uid = utils.make_order(quote, amount, payment_date,
+                           delievery_date, sme, ce=ce, ce_name=ce_name)
 
     return "Error"
 
@@ -207,4 +246,4 @@ def sign_action():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5001)

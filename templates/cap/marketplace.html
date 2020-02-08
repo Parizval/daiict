@@ -96,8 +96,8 @@
                                     {% for i in data %}
                                     {% if data[i].approved=='yes' %}
                                     <tr>
-                                        <td>{{data[i].ce}}</td>
-                                        <td>{{data[i].sme}}</td>
+                                        <td>{{data[i].cename}}</td>
+                                        <td>{{smemap[data[i].sme]}}</td>
                                         <td>{{data[i].amount}}</td>
                                         <td>{{data[i].payment_date}}</td>
                                         <td>{{data[i].delivery_date}}</td>
