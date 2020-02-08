@@ -8,7 +8,7 @@
 
 ## **Smart Contracts:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;Smart contracts are computer protocols that are designed to digitally facillitate and enforce the negotiation &nbsp;&nbsp;&nbsp;&nbsp;and fulfillment of contracts between two independent parties, without the involvement or influence of third &nbsp;&nbsp;&nbsp;&nbsp;parties.
+&nbsp;&nbsp;&nbsp;&nbsp;Smart contracts are computer protocols that are designed to digitally facillitate and enforce the negotiation and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fulfillment of contracts between two independent parties, without the involvement or influence of third &nbsp;&nbsp;&nbsp;&nbsp;parties.
 These contribute to make it faster, cheaper and more secure than its more traditional alternatives.
 
 ## **Our Product:**
