@@ -43,8 +43,13 @@ def Register(email,name,password,category):
 def Login(email,password):
     l1 = {"email":email}
     res = logincol.find(l1)
-    check = False 
+
+    data = {}
+    data['check'] = False
     for i in res:
         if pbkdf2_sha256.verify(password, i['password']):
-            check = True
-    return check
+            data['name'] = i['name']
+            data['category'] = i['category']
+            data['check'] = True
+    print(data)
+    return data
