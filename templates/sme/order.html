@@ -186,9 +186,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
       
     </div>
@@ -255,7 +253,7 @@ Bootstrap Date Range Picker
 
                 $.ajax({
                     data: {
-                        
+                        HashCode :  "test",
                         WorkingCapital: $("#WorkingCapital").val(),
                         CapitalDeadline: $('#date-picker').val()
                         
@@ -282,10 +280,8 @@ Bootstrap Date Range Picker
 
             $.ajax({
                 data: {
-                    CE: $("#Buyer").text(),
-                    Amount: $("#Amount").text(),
-                    Quote: $("#Quotation").text()
-                },
+                    HashCode :"asd" ,
+                },//$('').text()
                 type: "POST",
                 url: '/sme/reject'
             })
