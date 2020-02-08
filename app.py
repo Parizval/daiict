@@ -136,8 +136,17 @@ def core():
         return redirect("/")
     if session['category'] != "CE":
         return redirect("/")
-
-    return render_template('/ce/index.html', name=session['name'])
+    temp = utils.db.get_data('orders')
+    orders = {}
+    for i in temp:
+        if temp[i]['ce'] == session['hash']:
+            orders[i] = temp[i]
+    smes = utils.db.get_data('sme')
+    sms = [orders[i]['sme'] for i in orders]
+    sm = {}
+    for i in sms:
+        sm[i] = smes[i]['name']
+    return render_template('/ce/index.html', data=orders, smemap=sm, name=session['name'])
 
 
 @app.route("/ce/decision")
@@ -262,8 +271,7 @@ def acceptsme():
     smes = utils.db.get_data('sme')
     cd = {}
     for i in submitted:
-        if submitted[i]['ceid'] == ce:
-            label = "Accepted" if submitted[i]['accepted'] == 'yes' else "Not Accepted"
+        if submitted[i]['ceid'] == ce and submitted[i]['accepted'] == 'no':
             name = smes[submitted[i]['sme']]['name']
             cd[i] = {
                 'name': name,
@@ -277,11 +285,12 @@ def submit_sme_accept():
     ce = session['hash']
     hashc = request.form['HashCode']
     flag = request.form['flag']
+    old_data = utils.db.get_data('requests/{}'.format(hashc))
     if flag == 'true':
         sme = request.form['sme']
         utils.add_sme(ce, sme)
-    print(hashc)
-    utils.db.write_data('requests', {}, hashc)
+        old_data['accepted'] = 'yes'
+        utils.db.write_data('requests', old_data, hashc)
     return ''
 
 

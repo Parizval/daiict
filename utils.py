@@ -88,7 +88,7 @@ def update_order_ce(uid, insurance):
 
 
 def submit_request(sme, ceid):
-    hash = hashlib.sha1(str(time.time()).encode())
+    hash = hashlib.sha1(str(sme+ceid).encode())
     hex_dig = hash.hexdigest()
     uid = hex_dig[-15:]
     db.write_data('requests', {

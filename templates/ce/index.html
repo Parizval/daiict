@@ -22,7 +22,7 @@
     <div id="top" class="clearfix">
 
         <div class="applogo">
-            <a href="index.html" class="logo">kode</a>
+            <a href="/" class="logo">Name</a>
         </div>
         <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
         <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
@@ -60,134 +60,46 @@
 
 
         <div class="container-widget">
-
-            <div class="col-md-12">
-                <ul class="topstats clearfix">
-                    <li class="arrow"></li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-dot-circle-o"></i> Today Profit</span>
-                        <h3>$36.45</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-calendar-o"></i> This Week</span>
-                        <h3>$96.25</h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            week</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-shopping-cart"></i> Total Sales</span>
-                        <h3 class="color-up">696</h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            month</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-users"></i> Visitors</span>
-                        <h3>960</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-eye"></i> Page View</span>
-                        <h3 class="color-up">46.230</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-clock-o"></i> Avarage Time</span>
-                        <h3 class="color-down">2:10<small>min</small></h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            week</span>
-                    </li>
-                </ul>
-            </div>
-
             <div class="row">
-
-
-                <!-- Start Orders -->
-                <div class="col-md-12 col-lg-6">
+                <div class="col-md-12 col-lg-12">
                     <div class="panel panel-widget">
                         <div class="panel-title">
-                            LAST ORDERS <span class="label label-warning">196</span>
-                            <ul class="panel-tools">
-                                <li><a class="icon search-tool"><i class="fa fa-search"></i></a></li>
-                                <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
-                                <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
-                                <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
-                            </ul>
+                            TOTAL ORDERS <span class="label label-warning"></span>
                         </div>
-
-                        <div class="panel-search">
-                            <form>
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <i class="fa fa-search icon"></i>
-                            </form>
-                        </div>
-
 
                         <div class="panel-body table-responsive">
 
-                            <table class="table table-hover table-striped">
+                            <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <td class="text-center"><i class="fa fa-trash"></i></td>
-                                        <td>Order ID</td>
-                                        <td>Product</td>
-                                        <td>Buyer</td>
-                                        <td>Date</td>
-                                        <td>Payment</td>
+                                        <td>SME</td>
+                                        <td>Amount</td>
+                                        <td>Quote</td>
+                                        <td>Payment date</td>
+                                        <td>Delivery date</td>
+                                        <td>Insurance</td>
+                                        <td>Working Capital</td>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for i in data %}
                                     <tr>
-                                        <td class="text-center">
-                                            <div class="checkbox margin-t-0"><input id="checkbox1"
-                                                    type="checkbox"><label for="checkbox1"></label></div>
-                                        </td>
-                                        <td># <b>9652</b></td>
-                                        <td>Kode Gaming Laptop</td>
-                                        <td>John Doe</td>
-                                        <td>12/10/2015</td>
-                                        <td>Credit Card</td>
+                                        <td>{{smemap[data[i].sme]}}</td>
+                                        <td>₹{{data[i].amount}}</td>
+                                        <td>{{data[i].quote}}</td>
+                                        <td>{{data[i].payment_date}}</td>
+                                        <td>{{data[i].delivery_date}}</td>
+                                        <td>{{data[i].insurance}}</td>
+                                        <td>₹{{data[i].wc}}</td>
+                                        {% if data[i].approved =='yes' %}
+                                        <td><span class="label right label-success">Approved</span></td>
+                                        {% else %}
+                                        <td><span class="label right label-warning">Not Approved yet</span></td>
+                                        {% endif %}
                                     </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="checkbox margin-t-0"><input id="checkbox2"
-                                                    type="checkbox"><label for="checkbox2"></label></div>
-                                        </td>
-                                        <td># <b>1963</b></td>
-                                        <td>New Season Jacket</td>
-                                        <td>Jane Doe</td>
-                                        <td>12/10/2015</td>
-                                        <td>Paypal</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="checkbox margin-t-0"><input id="checkbox3"
-                                                    type="checkbox"><label for="checkbox3"></label></div>
-                                        </td>
-                                        <td># <b>9652</b></td>
-                                        <td>IO Mouse</td>
-                                        <td>Jonathan Doe</td>
-                                        <td>12/10/2015</td>
-                                        <td>Credit Card</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <div class="checkbox margin-t-0"><input id="checkbox4"
-                                                    type="checkbox"><label for="checkbox4"></label></div>
-                                        </td>
-                                        <td># <b>9651</b></td>
-                                        <td>Doe Bike</td>
-                                        <td>Jonathan Doe</td>
-                                        <td>12/10/2015</td>
-                                        <td>Credit Card</td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
