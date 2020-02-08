@@ -69,14 +69,17 @@
 
 
             <div class="row">
-                <div class="col-md-4">
-                    <h4>Pending requests</h4>
+                <div class="col-md-6">
+                    
                     <div class="panel panel-widget">
+                        <div class="panel-title">
+                            Pending requests
+                        </div>
                         <div class="panel-body">
 
                             <ul class="basic-list">
                                 {% for i in data %}
-                                <li>{{data[i].name}} <span class="right label">
+                                <li>{{data[i].name}} <span class="right label" >
                                         <button class="btn btn-default" id="{{i}}-accept">Confirm</button>
                                         <button class="btn btn-danger" id="{{i}}-reject">Decline</button>
                                     </span></li>
@@ -86,6 +89,15 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row" style="visibility: hidden;height:max-content">
+                <h2>Test</h2>   
+                <h2>Test</h2>
+                <h2>Test</h2>
+                <h2>Test</h2>
+                <h2>Test</h2>
+                <h2>Test</h2>
+                <h2>Test</h2>
             </div>
 
         </div>
