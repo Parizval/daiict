@@ -31,17 +31,10 @@
 
             <li class="dropdown link">
                 <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img
-                        src="/static/dashboard/img/profileimg.png" alt="img"><b>Jonathan Doe</b><span
+                        src="/static/dashboard/img/profileimg.png" alt="img"><b>{{name}}</b><span
                         class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
-                    <li role="presentation" class="dropdown-header">Profile</li>
-                    <li><a href="#"><i class="fa falist fa-inbox"></i>Inbox<span class="badge label-danger">4</span></a>
-                    </li>
-                    <li><a href="#"><i class="fa falist fa-file-o"></i>Files</a></li>
-                    <li><a href="#"><i class="fa falist fa-wrench"></i>Settings</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="fa falist fa-lock"></i> Lockscreen</a></li>
-                    <li><a href="#"><i class="fa falist fa-power-off"></i> Logout</a></li>
+                    <li><a href="/logout"><i class="fa falist fa-power-off"></i> Logout</a></li>
                 </ul>
             </li>
 
@@ -101,7 +94,7 @@
                                         <td>{{data[i].payment_date}}</td>
                                         <td>{{data[i].wc}}</td>
                                         <td>
-                                            <input type="number" id="{{i}}-insurance"/>
+                                            <input type="number" id="{{i}}-insurance" />
                                         </td>
                                         <td><button class="btn btn-default" id="{{i}}-accept">Confirm</button>
                                         </td>
@@ -117,7 +110,7 @@
 
             </div>
             <div class="row" style="visibility: hidden;height:max-content">
-                <h2>Test</h2>   
+                <h2>Test</h2>
                 <h2>Test</h2>
                 <h2>Test</h2>
                 <h2>Test</h2>
