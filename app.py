@@ -80,6 +80,21 @@ def ce_decision():
     else:
         return render_template('/ce/approve_order.html', data=data)
 
+@app.route('/ce/approve', methods=['POST'])
+def ce_approve():
+    hash_number = request.form['HashCode']
+    insurance = request.form['Insurance']
+    print(hash_number,insurance)  
+ #   utils.update_order_sme(hash_number,  captialdeadline)
+    return "Error"
+
+
+@app.route('/ce/reject', methods=['POST'])
+def ce_reject():
+    hash_number = request.form['HashCode']
+    print(hash_number)
+    #utils.db.write_data('orders', {}, hash_number)
+    return "Error"
 
 @app.route("/capital")
 def capital():
