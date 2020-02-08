@@ -4,7 +4,7 @@
 
 ## **Blockchain:**
 
-&nbsp;&nbsp;&nbsp;&nbsp;A block chain is a distributed, time-stamped, immutable ledger of data that can be used to store virtually &nbsp;&nbsp;&nbsp;&nbsp;anything. <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;A block chain is a distributed, time-stamped, immutable ledger of data that can be used to store virtually anything. <br/>
 
 ## **Smart Contracts:**
 
