@@ -23,6 +23,13 @@ def error404(error):
     return render_template('404.html'), 404
 
 
+@app.route("/sme/invoice/<order>")
+def sme_invoice(order):
+    data = utils.db.get_data('orders/'+order)
+    print(order)
+    return render_template('/sme/invoice.html', data=data, id=order)
+
+
 @app.route("/sme")
 def smeindex():
     return render_template('/sme/index.html')
@@ -80,21 +87,22 @@ def ce_decision():
     else:
         return render_template('/ce/approve_order.html', data=data)
 
+
 @app.route('/ce/approve', methods=['POST'])
 def ce_approve():
     hash_number = request.form['HashCode']
     insurance = request.form['Insurance']
-    print(hash_number,insurance)  
- #   utils.update_order_sme(hash_number,  captialdeadline)
+    print(hash_number, insurance)
+    utils.update_order_ce(hash_number,  insurance)
     return "Error"
 
 
 @app.route('/ce/reject', methods=['POST'])
 def ce_reject():
     hash_number = request.form['HashCode']
-    print(hash_number)
-    #utils.db.write_data('orders', {}, hash_number)
+    utils.db.write_data('orders', {}, hash_number)
     return "Error"
+
 
 @app.route("/capital")
 def capital():

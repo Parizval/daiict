@@ -79,6 +79,13 @@ def update_order_sme(uid, wc, wcd):
     db.write_data('orders', old_data, flag=uid)
 
 
+def update_order_ce(uid, insurance):
+    old_data = db.get_data('orders/{}'.format(uid))
+    old_data['insurance'] = insurance
+    old_data['approved'] = 'yes'
+    db.write_data('orders', old_data, flag=uid)
+
+
 def make_line_graph():
     graph = pygal.Line()
     graph.title = '% Change Coolness of programming languages over time.'

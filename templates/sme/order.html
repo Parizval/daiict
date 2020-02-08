@@ -151,6 +151,7 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
+                                        <td>Invoice</td>
                                         <td>Buyer</td>
                                         <td>Quotation</td>
                                         <td>Amount</td>
@@ -165,6 +166,7 @@
                                 <tbody>
                                     {% for i in data %}
                                     <tr>
+                                        <td><a href='/sme/invoice/{{i}}'>View</a></td>
                                         <td id="Buyer">{{data[i].ce}}</td>
                                         <td id="Quotation">{{data[i].quote}}</td>
                                         <td id="Amount">{{data[i].amount}}</td>

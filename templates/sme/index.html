@@ -40,8 +40,7 @@
         <ul class="top-right">
 
             <li class="dropdown link">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img
-                        src="/static/dashboard/img/profileimg.png" alt="img"><b>Jonathan Doe</b><span
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><b>Jonathan Doe</b><span
                         class="caret"></span></a>
                 <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
                     <li role="presentation" class="dropdown-header">Profile</li>
@@ -73,35 +72,6 @@
                         class="label label-default">2</span></a></li>
             <li><a href="mailbox.html"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Mailbox<span
                         class="label label-default">19</span></a></li>
-            <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>UI Elements<span
-                        class="caret"></span></a>
-                <ul>
-                    <li><a href="icons.html">Icons</a></li>
-                    <li><a href="tabs.html">Tabs</a></li>
-                    <li><a href="buttons.html">Buttons</a></li>
-                    <li><a href="panels.html">Panels</a></li>
-                    <li><a href="notifications.html">Notifications</a></li>
-                    <li><a href="modal-boxes.html">Modal Boxes</a></li>
-                    <li><a href="progress-bars.html">Progress Bars</a></li>
-                    <li><a href="others.html">Others<span class="label label-danger">NEW</span></a></li>
-                </ul>
-            </li>
-            <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>Charts</a></li>
-            <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>Tables<span
-                        class="caret"></span></a>
-                <ul>
-                    <li><a href="basic-table.html">Basic Tables</a></li>
-                    <li><a href="data-table.html">Data Tables</a></li>
-                </ul>
-            </li>
-            <li><a href="#"><span class="icon color10"><i class="fa fa-check-square-o"></i></span>Forms<span
-                        class="caret"></span></a>
-                <ul>
-                    <li><a href="form-elements.html">Form Elements</a></li>
-                    <li><a href="layouts.html">Form Layouts</a></li>
-                    <li><a href="text-editors.html">Text Editors</a></li>
-                </ul>
-            </li>
         </ul>
 
 
@@ -112,28 +82,6 @@
     <!-- //////////////////////////////////////////////////////////////////////////// -->
     <!-- START CONTENT -->
     <div class="content">
-
-        <!-- Start Page Header -->
-        <div class="page-header">
-            <h1 class="title">Dashboard</h1>
-            <ol class="breadcrumb">
-                <li class="active">This is a quick overview of some features</li>
-            </ol>
-
-            <!-- Start Page Header Right Div -->
-            <div class="right">
-                <div class="btn-group" role="group" aria-label="...">
-                    <a href="index.html" class="btn btn-light">Dashboard</a>
-                    <a href="#" class="btn btn-light"><i class="fa fa-refresh"></i></a>
-                    <a href="#" class="btn btn-light"><i class="fa fa-search"></i></a>
-                    <a href="#" class="btn btn-light" id="topstats"><i class="fa fa-line-chart"></i></a>
-                </div>
-            </div>
-            <!-- End Page Header Right Div -->
-
-        </div>
-        <!-- End Page Header -->
-
 
         <!-- //////////////////////////////////////////////////////////////////////////// -->
         <!-- START CONTAINER -->
@@ -183,132 +131,8 @@
             </div>
             <!-- End Top Stats -->
 
-
-            <!-- Start First Row -->
-            <div class="row">
-
-                <!-- Start Chart Daily -->
-                <div class="col-md-12 col-lg-7">
-                    <div class=" panel-widget widget chart-with-stats clearfix" style="height:450px;">
-
-                        <div class="col-sm-12" style="height:450px;">
-                            <h4 class="title">TODAY SALES<small>Last update: 1 Hours ago</small></h4>
-                            <div class="top-label">
-                                <h2>11.291</h2>
-                                <h4>Today Total</h4>
-                            </div>
-                            <div class="bigchart" id="todaysales"></div>
-                        </div>
-                        <div class="right" style="height:450px;">
-                            <h4 class="title">PAGE VIEW</h4>
-                            <!-- start stats -->
-                            <ul class="widget-inline-list clearfix">
-                                <li class="col-12"><span>962</span>Themeforest<i class="chart sparkline-green"></i></li>
-                                <li class="col-12"><span>367</span>Codecanyon<i class="chart sparkline-blue"></i></li>
-                                <li class="col-12"><span>92</span>Photodune<i class="chart sparkline-red"></i></li>
-                            </ul>
-                            <!-- end stats -->
-                        </div>
-
-
-                    </div>
-                </div>
-                <!-- End Chart Daily -->
-
-
-
-
-            </div>
-            <!-- End First Row -->
-
-
-            <!-- Start Second Row -->
-            <div class="row">
-
-
-
-                <!-- Start Today Activity -->
-                <div class="col-md-12 col-lg-3">
-                    <div class="panel panel-widget" style="height:380px;">
-                        <div class="panel-title">
-                            TODAY ACTIVITY <span class="label label-success">9</span>
-                            <ul class="panel-tools panel-tools-hover">
-                                <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
-                                <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="panel-body">
-
-                            <ul class="widget-inline-list clearfix">
-                                <li class="col-4"><span>1:52:22</span>Active Time</li>
-                                <li class="col-4"><span>60%</span>Completed</li>
-                                <li class="col-4"><span>0:11:46</span>Break Time</li>
-                            </ul>
-
-                            <div id="todayactivity" class="chart-on-bottom"></div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End Today Activity -->
-
-                <!-- Start Server Status -->
-                <div class="col-md-12 col-lg-6">
-                    <div class="panel panel-widget" style="height:380px;">
-                        <div class="panel-title">
-                            SERVER STATUS <span class="label label-default">196</span>
-                            <ul class="panel-tools panel-tools-hover">
-                                <li><a class="icon"><i class="fa fa-refresh"></i></a></li>
-                                <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="panel-body">
-
-                            <ul class="widget-inline-list clearfix">
-                                <li class="col-3 color10"><span>28.9GB</span>Total Usage</li>
-                                <li class="col-3"><span>92%</span>Space Left</li>
-                                <li class="col-3 color7"><span>22%</span>CPU</li>
-                                <li class="col-3"><span>512MB</span>Total RAM</li>
-                            </ul>
-
-                            <div id="realtime" class="flotchart-placeholder" style="height:190px;"></div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End Server Status -->
-
-
-
-            </div>
-            <!-- End Second Row -->
-
-
             <!-- Start Third Row -->
             <div class="row">
-
-
-                <!-- Start General Stats -->
-                <div class="col-md-12 col-lg-6">
-                    <div class="panel panel-widget" style="height:205px;">
-                        <div class="panel-title">
-                            General Stats
-                        </div>
-                        <div class="panel-body">
-
-                            <div class="easypie margin-b-50" data-percent="82"><span>82%</span>New Visit</div>
-                            <div class="easypie margin-b-50" data-percent="30"><span>30%</span>Order</div>
-                            <div class="easypie margin-b-50 margin-b-40" data-percent="62"><span>62%</span>Page View
-                            </div>
-                            <div class="easypie margin-b-50" data-percent="15"><span>15%</span>Client</div>
-                            <div class="easypie margin-b-50" data-percent="45"><span>45%</span>Storage</div>
-                            <div class="easypie margin-b-50" data-percent="75"><span>76%</span>Comments</div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- End General Stats -->
-
 
 
 
@@ -322,23 +146,12 @@
 
 
                 <!-- Start Project Stats -->
-                <div class="col-md-12 col-lg-6">
+                <div class="col-md-12 col-lg-12">
                     <div class="panel panel-widget">
                         <div class="panel-title">
-                            Projects Stats <span class="label label-info">62</span>
-                            <ul class="panel-tools">
-                                <li><a class="icon minimise-tool"><i class="fa fa-minus"></i></a></li>
-                                <li><a class="icon expand-tool"><i class="fa fa-expand"></i></a></li>
-                                <li><a class="icon closed-tool"><i class="fa fa-times"></i></a></li>
-                            </ul>
+                            CURRENT ORDERS <span class="label label-info">62</span>
                         </div>
 
-                        <div class="panel-search">
-                            <form>
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <i class="fa fa-search icon"></i>
-                            </form>
-                        </div>
 
 
                         <div class="panel-body table-responsive">
@@ -390,43 +203,9 @@
                     </div>
                 </div>
                 <!-- Start Project Stats -->
-
-
-
-
-
-
-
-            </div>
-            <!-- End Fifth Row -->
-
-
-
-
-        </div>
-        <!-- END CONTAINER -->
-        <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-        <!-- Start Footer -->
-        <div class="row footer">
-            <div class="col-md-6 text-left">
-                Copyright © 2015 <a href="http://themeforest.net/user/egemem/portfolio" target="_blank">Egemem</a> All
-                rights reserved.
-            </div>
-            <div class="col-md-6 text-right">
-                Design and Developed by <a href="http://themeforest.net/user/egemem/portfolio"
-                    target="_blank">Egemem</a>
             </div>
         </div>
-        <!-- End Footer -->
-
-
     </div>
-    <!-- End Content -->
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-
-
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
 
 
     <!-- ================================================
@@ -563,96 +342,6 @@ Bootstrap Date Range Picker
     <!-- ================================================
 Below codes are only for index widgets
 ================================================ -->
-    <!-- Today Sales -->
-    <script>
-
-        // set up our data series with 50 random data points
-
-        var seriesData = [[], [], []];
-        var random = new Rickshaw.Fixtures.RandomData(20);
-
-        for (var i = 0; i < 110; i++) {
-            random.addData(seriesData);
-        }
-
-        // instantiate our graph!
-
-        var graph = new Rickshaw.Graph({
-            element: document.getElementById("todaysales"),
-            renderer: 'bar',
-            series: [
-                {
-                    color: "#33577B",
-                    data: seriesData[0],
-                    name: 'Photodune'
-                }, {
-                    color: "#77BBFF",
-                    data: seriesData[1],
-                    name: 'Themeforest'
-                }, {
-                    color: "#C1E0FF",
-                    data: seriesData[2],
-                    name: 'Codecanyon'
-                }
-            ]
-        });
-
-        graph.render();
-
-        var hoverDetail = new Rickshaw.Graph.HoverDetail({
-            graph: graph,
-            formatter: function (series, x, y) {
-                var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
-                var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-                var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
-                return content;
-            }
-        });
-
-    </script>
-
-    <!-- Today Activity -->
-    <script>
-        // set up our data series with 50 random data points
-
-        var seriesData = [[], [], []];
-        var random = new Rickshaw.Fixtures.RandomData(20);
-
-        for (var i = 0; i < 50; i++) {
-            random.addData(seriesData);
-        }
-
-        // instantiate our graph!
-
-        var graph = new Rickshaw.Graph({
-            element: document.getElementById("todayactivity"),
-            renderer: 'area',
-            series: [
-                {
-                    color: "#9A80B9",
-                    data: seriesData[0],
-                    name: 'London'
-                }, {
-                    color: "#CDC0DC",
-                    data: seriesData[1],
-                    name: 'Tokyo'
-                }
-            ]
-        });
-
-        graph.render();
-
-        var hoverDetail = new Rickshaw.Graph.HoverDetail({
-            graph: graph,
-            formatter: function (series, x, y) {
-                var date = '<span class="date">' + new Date(x * 1000).toUTCString() + '</span>';
-                var swatch = '<span class="detail_swatch" style="background-color: ' + series.color + '"></span>';
-                var content = swatch + series.name + ": " + parseInt(y) + '<br>' + date;
-                return content;
-            }
-        });
-    </script>
-
 
 
 </body>

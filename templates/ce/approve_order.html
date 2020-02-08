@@ -56,7 +56,7 @@
             </li>
 
         </ul>
-     </div>
+    </div>
     <div class="sidebar clearfix">
         <ul class="sidebar-panel nav">
             <li class="sidetitle">MAIN</li>
@@ -172,7 +172,7 @@
 
     <script type="text/javascript" src="/static/dashboard/js/summernote/summernote.min.js"></script>
 
-    
+
     <script src="/static/dashboard/js/datatables/datatables.min.js"></script>
 
 
@@ -203,9 +203,9 @@
                     $.ajax({
                         data: {
 
-                            HashCode : '{{i}}',
-                            Insurance : $('#{{i}}-insurance').val()
-                            
+                            HashCode: '{{i}}',
+                            Insurance: $('#{{i}}-insurance').val()
+
 
                         },
                         type: "POST",
@@ -216,9 +216,7 @@
                                 alert("Error")
                             }
                             else {
-                                //    $(location).attr('href', '/Dash')
-
-                                alert("Success");
+                                $(location).attr('href', '/ce/decision');
                             }
                         });
 
@@ -230,8 +228,8 @@
 
                     $.ajax({
                         data: {
-                            HashCode : '{{i}}',
-                           
+                            HashCode: '{{i}}',
+
                         },
                         type: "POST",
                         url: '/ce/reject'
@@ -241,17 +239,12 @@
                                 alert("Error")
                             }
                             else {
-                                //    $(location).attr('href', '/Dash')
-
-                                alert("Success");
+                                $(location).attr('href', '/ce/decision')
                             }
                         });
-
                     event.preventDefault();
 
                 });
-
-
                 {% endfor %}
             });
     </script>
