@@ -326,10 +326,10 @@ def sign_action():
     category = request.form['category']
     hash_object = hashlib.sha1(email.encode())
     hashc = hash_object.hexdigest()[-15:]
-    
+
     myc = {'Capitalist': 'investors', 'CE': 'enterprises', 'SME': 'sme'}
     link_map = {'SME': '/sme', 'CE': '/ce', "Capitalist": '/capital'}
-    
+
     data = {}
     data['check'] = False
 
@@ -341,7 +341,11 @@ def sign_action():
         }, hashc)
 
         data['check'] = True
-        data['link'] = link_map[data['category']]
+        data['link'] = link_map[category]
+
+        session['name'] = name
+        session['category'] = category
+        session['hash'] = hashc
         return data
 
     return data
