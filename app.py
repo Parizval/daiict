@@ -52,7 +52,7 @@ def smeindex():
     if session['category'] != "SME":
         return redirect("/")
 
-    sme = '06b1a480720d443'
+    sme = session['hash']
     temp = utils.db.get_data('orders')
     orders = {}
     for i in temp:
@@ -70,7 +70,7 @@ def sme_request_to_ce():
     if session['category'] != "SME":
         return redirect("/")
 
-    sme = '21f9cb3371a23b7'
+    sme = session['hash']
     submitted = utils.db.get_data('requests')
     entp = utils.db.get_data('enterprises')
     cd = {}
@@ -90,7 +90,7 @@ def sme_request_to_ce():
 
 @app.route("/sme/request/submit", methods=['POST'])
 def submit_sme_request():
-    sme = '21f9cb3371a23b7'
+    sme = session['hash']
     ceid = request.form['sme']
     utils.submit_request(sme, ceid)
     return ''
@@ -231,7 +231,7 @@ def CreateOrder():
     if session['category'] != "CE":
         return redirect("/")
 
-    ce = '9f4b705b6f9d7c8'
+    ce = session['hash']
     joined = utils.db.get_data('enterprises/{}'.format(ce))
     smes = utils.db.get_data('sme')
     lst = joined['smes']
@@ -255,7 +255,7 @@ def acceptsme():
     if session['category'] != "CE":
         return redirect("/")
 
-    ce = '9f4b705b6f9d7c8'
+    ce = session['hash']
     submitted = utils.db.get_data('requests')
     smes = utils.db.get_data('sme')
     cd = {}
@@ -272,7 +272,7 @@ def acceptsme():
 
 @app.route("/ce/accept/submit", methods=['POST'])
 def submit_sme_accept():
-    ce = '9f4b705b6f9d7c8'
+    ce = session['hash']
     hashc = request.form['HashCode']
     flag = request.form['flag']
     if flag == 'true':
@@ -304,13 +304,15 @@ def login_action():
 
 @app.route('/create_order', methods=['POST'])
 def create_order():
-    ce = '9f4b705b6f9d7c8'
-    ce_name = 'Reliance Pvt Limited'
+    ce = session['hash']
+    ce_name = session['name']
+
     amount = request.form['Amount']
     quote = request.form['Quote']
     payment_date = request.form['Payment']
     delievery_date = request.form['Delievery']
     sme = request.form['SME']
+
     uid = utils.make_order(quote, amount, payment_date,
                            delievery_date, sme, ce=ce, ce_name=ce_name)
 
