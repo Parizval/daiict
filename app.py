@@ -218,7 +218,10 @@ def capital_market():
             data[i] = temp[i]
     sms = [data[i]['sme'] for i in data]
     for i in sms:
-        sm[i] = smes[i]['name']
+        try:
+            sm[i] = smes[i]['name']
+        except:
+            pass
     return render_template('/cap/marketplace.html', data=data, smemap=sm, name=session['name'])
 
 
