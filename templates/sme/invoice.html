@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="SCF Solution">
+    <meta name="description" content="SCF Solution">
     <meta name="keywords" content="bootstrap, admin, dashboard, flat admin template, responsive," />
     <title>Invoice </title>
     <link href="/static/dashboard/css/root.css" rel="stylesheet">
@@ -14,9 +13,9 @@
 </head>
 
 <body>
-    
+
     <div class="loading"><img src="/static/dashboard/img/loading.gif" alt="loading-img"></div>
-    
+
     <div id="top" class="clearfix">
 
         <div class="applogo">
@@ -24,7 +23,7 @@
         </div>
         <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
         <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
-    
+
         <ul class="top-right">
 
             <li class="dropdown link">
@@ -49,40 +48,13 @@
 
         <ul class="sidebar-panel nav">
             <li class="sidetitle">MAIN</li>
-            <li><a href="index.html"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard<span
-                        class="label label-default">2</span></a></li>
-            <li><a href="mailbox.html"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Mailbox<span
-                        class="label label-default">19</span></a></li>
-            <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>UI Elements<span
-                        class="caret"></span></a>
-                <ul>
-                    <li><a href="icons.html">Icons</a></li>
-                    <li><a href="tabs.html">Tabs</a></li>
-                    <li><a href="buttons.html">Buttons</a></li>
-                    <li><a href="panels.html">Panels</a></li>
-                    <li><a href="notifications.html">Notifications</a></li>
-                    <li><a href="modal-boxes.html">Modal Boxes</a></li>
-                    <li><a href="progress-bars.html">Progress Bars</a></li>
-                    <li><a href="others.html">Others<span class="label label-danger">NEW</span></a></li>
-                </ul>
-            </li>
-            <li><a href="charts.html"><span class="icon color8"><i class="fa fa-bar-chart"></i></span>Charts</a></li>
-            <li><a href="#"><span class="icon color9"><i class="fa fa-th"></i></span>Tables<span
-                        class="caret"></span></a>
-                <ul>
-                    <li><a href="basic-table.html">Basic Tables</a></li>
-                    <li><a href="data-table.html">Data Tables</a></li>
-                </ul>
-            </li>
-            <li><a href="widgets.html"><span class="icon color11"><i class="fa fa-diamond"></i></span>Widgets</a></li>
-            <li><a href="calendar.html"><span class="icon color8"><i class="fa fa-calendar-o"></i></span>Calendar<span
-                        class="label label-danger">NEW</span></a></li>
-            <li><a href="typography.html"><span class="icon color12"><i class="fa fa-font"></i></span>Typography</a>
-            </li>
-
+            <li><a href="/sme"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard<span
+                        class="label label-default"></span></a></li>
+            <li><a href="/sme/decision"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Accept
+                    Invoices<span class="label label-default"></span></a></li>
+            <li><a href="/sme/request"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Request
+                    Enterprise<span class="label label-default"></span></a></li>
         </ul>
-
-
 
     </div>
     <div class="content">
@@ -93,7 +65,7 @@
             <div class="invoice row">
                 <div class="invoicename">INVOICE</div>
                 <div class="logo">
-                    <h1>{{data.ce}}</h1>
+                    <h1>{{data.cename}}</h1>
                 </div>
 
                 <div class="line row">
@@ -110,7 +82,7 @@
                 <div class="line row">
                     <div class="col-md-6 col-xs-6 padding-0 text-left">
                         <h4>PREPARED FOR</h4>
-                        <h2>{{data.sme}}</h2>
+                        <h2>{{sme_name}}</h2>
                     </div>
                     <div class="col-md-6 col-xs-6 padding-0 text-right">
                         <h4>PROJECT</h4>

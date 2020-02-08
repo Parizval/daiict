@@ -26,6 +26,5 @@ class Database:
 if __name__ == '__main__':
     db = Database()
     db.write_data('enterprises', {
-        'name': 'Test SME',
-        'fields': 'test fields'
+        'name': 'P&G Inc.',
     })

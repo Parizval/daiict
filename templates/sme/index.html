@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Supply Chain  Finance Solution">
+    <meta name="description" content="Supply Chain  Finance Solution">
     <meta name="keywords" content="bootstrap, admin, dashboard, flat admin template, responsive," />
     <title>Dashboard | SME</title>
     <link href="/static/dashboard/css/root.css" rel="stylesheet">
@@ -15,18 +14,18 @@
 </head>
 
 <body>
-  
+
     <div class="loading"><img src="/static/dashboard/img/loading.gif" alt="loading-img"></div>
-  
+
     <div id="top" class="clearfix">
 
         <div class="applogo">
             <a href="index.html" class="logo">Name</a>
         </div>
-       
+
         <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
         <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
-    
+
         <ul class="top-right">
 
             <li class="dropdown link">
@@ -45,140 +44,82 @@
             </li>
 
         </ul>
-     
+
     </div>
-   
+
     <div class="sidebar clearfix">
 
         <ul class="sidebar-panel nav">
             <li class="sidetitle">MAIN</li>
-            <li><a href="index.html"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard<span
-                        class="label label-default">2</span></a></li>
-            <li><a href="mailbox.html"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Mailbox<span
-                        class="label label-default">19</span></a></li>
+            <li><a href="/sme"><span class="icon color5"><i class="fa fa-home"></i></span>Dashboard<span
+                        class="label label-default"></span></a></li>
+            <li><a href="/sme/decision"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Accept
+                    Invoices<span class="label label-default"></span></a></li>
+            <li><a href="/sme/request"><span class="icon color6"><i class="fa fa-envelope-o"></i></span>Request
+                    Enterprise<span class="label label-default"></span></a></li>
         </ul>
 
 
     </div>
-    
+
     <div class="content">
 
         <div class="container-widget">
 
-            <div class="col-md-12">
-                <ul class="topstats clearfix">
-                    <li class="arrow"></li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-dot-circle-o"></i> Today Profit</span>
-                        <h3>$36.45</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-calendar-o"></i> This Week</span>
-                        <h3>$96.25</h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            week</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-shopping-cart"></i> Total Sales</span>
-                        <h3 class="color-up">696</h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            month</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-users"></i> Visitors</span>
-                        <h3>960</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-eye"></i> Page View</span>
-                        <h3 class="color-up">46.230</h3>
-                        <span class="diff"><b class="color-down"><i class="fa fa-caret-down"></i> 26%</b> from
-                            yesterday</span>
-                    </li>
-                    <li class="col-xs-6 col-lg-2">
-                        <span class="title"><i class="fa fa-clock-o"></i> Avarage Time</span>
-                        <h3 class="color-down">2:10<small>min</small></h3>
-                        <span class="diff"><b class="color-up"><i class="fa fa-caret-up"></i> 26%</b> from last
-                            week</span>
-                    </li>
-                </ul>
-            </div>
-          
-            <div class="row">
-
-
-
-            </div>
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="panel panel-widget">
                         <div class="panel-title">
-                            CURRENT ORDERS <span class="label label-info">62</span>
+                            TOTAl ORDERS <span class="label label-info"></span>
                         </div>
-
-
 
                         <div class="panel-body table-responsive">
 
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <td>ID</td>
-                                        <td>Project</td>
-                                        <td>Status</td>
-                                        <td class="text-right">Progress</td>
+                                        <td>Buyer</td>
+                                        <td>Amount</td>
+                                        <td>Quote</td>
+                                        <td>Payment date</td>
+                                        <td>Delivery date</td>
+                                        <td>Insurance</td>
+                                        <td>Working Capital</td>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for i in data %}
                                     <tr>
-                                        <td>965</td>
-                                        <td>Kode Dashboard Template</td>
-                                        <td><span class="label label-default">Developing</span></td>
-                                        <td class="text-right"><span class="demo-project-stats"></span></td>
+                                        <td>{{data[i].cename}}</td>
+                                        <td>₹{{data[i].amount}}</td>
+                                        <td>{{data[i].quote}}</td>
+                                        <td>{{data[i].payment_date}}</td>
+                                        <td>{{data[i].delivery_date}}</td>
+                                        <td>{{data[i].insurance}}</td>
+                                        <td>₹{{data[i].wc}}</td>
+                                        {% if data[i].approved =='yes' %}
+                                        <td><span class="label right label-success">Approved</span></td>
+                                        {% else %}
+                                        <td><span class="label right label-warning">Not Approved yet</span></td>
+                                        {% endif %}
                                     </tr>
-                                    <tr>
-                                        <td>620</td>
-                                        <td>EBI iOS Application</td>
-                                        <td><span class="label label-warning">Design</span></td>
-                                        <td class="text-right"><span class="demo-project-stats"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>621</td>
-                                        <td>Kode Landing Page</td>
-                                        <td><span class="label label-info">Testing</span></td>
-                                        <td class="text-right"><span class="demo-project-stats"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>621</td>
-                                        <td>John Coffe Shop Logo</td>
-                                        <td><span class="label label-danger">Canceled</span></td>
-                                        <td class="text-right"><span class="demo-project-stats"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>621</td>
-                                        <td>BKM Website Design</td>
-                                        <td><span class="label label-primary">Reply waiting</span></td>
-                                        <td class="text-right"><span class="demo-project-stats"></span></td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
 
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
 
-    
+
     <script type="text/javascript" src="/static/dashboard/js/jquery.min.js"></script>
 
-    
+
     <script src="/static/dashboard/js/bootstrap/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="/static/dashboard/js/plugins.js"></script>
