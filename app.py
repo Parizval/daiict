@@ -28,6 +28,29 @@ def smeindex():
     return render_template('/sme/index.html')
 
 
+
+@app.route("/sme/decision")
+def sme_decision():
+    return render_template('/sme/order.html')
+
+
+@app.route('/sme/approve', methods=['POST'])
+def sme_approve():
+    hash_number = request.form['HashCode']
+    workingcapital = request.form['WorkingCapital']
+    captialdeadline = request.form['CapitalDeadline']
+    print(workingcapital, captialdeadline,hash_number)
+    return "Error"
+
+@app.route('/sme/reject', methods=['POST'])
+def sme_reject():
+
+    hash_number = request.form['HashCode']
+    print(hash_number)
+    return "Error"
+
+
+
 @app.route("/ce")
 def core():
     return render_template('/ce/index.html')
