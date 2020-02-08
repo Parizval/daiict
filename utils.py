@@ -55,7 +55,8 @@ def make_order(quote, amount, pd, dd, sme, ce='test'):
         'delivery_date': dd,
         'sme': sme,
         'ce': ce,
-        'approved': 'no'
+        'approved': 'no',
+        'sme_approved': 'no'
     }, flag=uid)
     return uid
 
@@ -68,6 +69,14 @@ def update_order(uid, approval):
         db.write_data('orders', old_data, flag=uid)
     else:
         db.write_data('orders', {}, flag=uid)
+
+
+def update_order_sme(uid, wc, wcd):
+    old_data = db.get_data('orders/{}'.format(uid))
+    old_data['wc'] = wc
+    old_data['wcd'] = wcd
+    old_data['sme_approved'] = 'yes'
+    db.write_data('orders', old_data, flag=uid)
 
 
 def make_line_graph():
