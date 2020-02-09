@@ -14,13 +14,17 @@
 
 ### Major Problems Solved 
 
- - KYC (Know your Customer): Most of the investors do want invest in small to medium scale enterprises but 
+ - **KYC (Know your Customer)**: Most of the investors do want invest in small to medium scale enterprises but 
         due to the lack on information on their financial invoices and associations. In case of personal 
         researching about the potential SMES's which could yield lucrative profits isn't much beneficial  
  
- -  Automated Dataflow : In order for the platform to showcase an association between the sellar and buyer, proper method of authentication is required so that investors does not get fradulent data. 
+ -  **Seamless Dataflow** : In order for the platform to showcase an association between the sellar and buyer, proper method of authentication is required so that investors does not get fradulent data. 
  
- - Immutable Financial Data :  With the use o
+ - **Immutable Ledger**:  With the use of blockchain and smart contracts, we have immutable ledger of transactions and invoices to inspire      trust and creditability among our customers.
+ 
+ - **Escrow:** A dedicated wallet and token system was created using smart contracts, with us - the product creators - as the banker to ensure hassle free escrow transactions for our customers.
+ 
+ **For more for information on [Smart Contracts](https://github.com/Parizval/daiict/tree/master/Smart%20Contracts)**
 ### **Our Solution:**
 &nbsp;&nbsp;&nbsp;&nbsp; Our solution was to create a Smart Contract(Blockchain) based product. We aimed to connect buyers, seller and<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; investors, in a common marketplace. In the marketplace, buyers (Core Enterprises - large corporations eg: Reliance, Tata<br/> &nbsp;&nbsp;&nbsp;&nbsp; Motors etc.) can source requirements from SMEs without having to compromise the cash flow.
