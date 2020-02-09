@@ -1,6 +1,6 @@
 # fintact
 
-#### **_Product developed for HACKINFINITY 2.0 @DAIICT_**
+#### **_Product developed for HACKINFINITY 2.0 @DAIICT_**. See demo [here](https://blockchain-scf.herokuapp.com/)
 
 ### **Problem Statement:**
 
