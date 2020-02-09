@@ -1,6 +1,6 @@
 # fintact
 
-#### **_Product developed for HACKINFINITY 2.0 @DAIICT_**
+#### **_Product developed for HACKINFINITY 2.0 @DAIICT_**. See demo [here](https://blockchain-scf.herokuapp.com/)
 
 ### **Problem Statement:**
 
@@ -38,12 +38,15 @@
 
 4) After the final approval by the buyer's side, the contract will be visible to the investors along with the previous statstical data of the buyer and seller. 
 ### **Screenshots**
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_1.png)  
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_2.png)  
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_3.png)  
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_4.png)  
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_5.png)  
-![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_6.png)  
+
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_8.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_1.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_2.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_3.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_4.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_5.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_6.png)    
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_7.png)  
   
 
 
