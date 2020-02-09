@@ -12,15 +12,24 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp; The problem that we identified as one of the most important, one that causes many SMEs to fade away into obscurity is &nbsp;&nbsp;&nbsp;&nbsp; cash flow management. Our product **CredBlock** aims to resolve this situation by applying blockchain technology and its &nbsp;&nbsp;&nbsp;&nbsp; paradigms.
 
+### Major Challenges 
+
+ - KYC (Know your Customer): Most of investors do not invest in small to medium scale enterprises
+        due to the lack on information on their financial insights and associations. In case of personal 
+        researching about the potential SMES's which could yield lucrative profits isn't much beneficial  
+
 ### **Our Solution:**
 &nbsp;&nbsp;&nbsp;&nbsp; Our solution was to create a Smart Contract(Blockchain) based product. We aimed to connect buyers, seller and<br/>
 &nbsp;&nbsp;&nbsp;&nbsp; investors, in a common marketplace. In the marketplace, buyers (Core Enterprises - large corporations eg: Reliance, Tata<br/> &nbsp;&nbsp;&nbsp;&nbsp; Motors etc.) can source requirements from SMEs without having to compromise the cash flow.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; In Detail:
-&nbsp;&nbsp;&nbsp;&nbsp; 1) The buyer will raise a request to a specific SME when required.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp; 2)  hjmjhjk,  <br>
+1) The buyer will raise a request to a specific SME when required.<br/>
 
+2)  The sellar can understant the buyer's requirements and  based on that can specify the amount of  working capital and working capital deadline. <br>
 
+3) The buyer has the option to specify the percent of insurance that will be backed by their side in case of anything default by the sellar.
+
+4) After the final approval by the buyer's side, the contract will be visible to the investors along with the previous statstical data of the buyer and seller. 
 ### **Technology Stack**
 
 ![](https://github.com/Parizval/daiict/tree/master/static/img/python.png)  
