@@ -1,4 +1,4 @@
-# CredBlock
+# fintact
 
 #### **_Product developed for HACKINFINITY 2.0 @DAIICT_**
 
@@ -10,7 +10,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp; They form an integral part of the country's economy and are thus closely tied with the growth and progress of India as<br/> &nbsp;&nbsp;&nbsp;&nbsp; a  nation. This makes problems faced by SMEs a collective issue that affects the economy, growth and wellbeing of the <br/> &nbsp;&nbsp;&nbsp;&nbsp; country and it's people.<br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp; The problem that we identified as one of the most important, one that causes many SMEs to fade away into obscurity is &nbsp;&nbsp;&nbsp;&nbsp; cash flow management. Our product **CredBlock** aims to resolve this situation by applying blockchain technology and its &nbsp;&nbsp;&nbsp;&nbsp; paradigms.
+&nbsp;&nbsp;&nbsp;&nbsp; The problem that we identified as one of the most important, one that causes many SMEs to fade away into obscurity is &nbsp;&nbsp;&nbsp;&nbsp; cash flow management. Our product **fintact** aims to resolve this situation by applying blockchain technology and its &nbsp;&nbsp;&nbsp;&nbsp; paradigms.
 
 ### Major Problems Solved 
 
