@@ -50,9 +50,9 @@ def sme_invoice(order):
 @app.route("/sme")
 def smeindex():
     if "name" not in session:
-        return redirect("/")
+        return redirect("/login")
     if session['category'] != "SME":
-        return redirect("/")
+        return redirect("/login")
 
     sme = session['hash']
     name = session['name']
@@ -135,9 +135,9 @@ def sme_reject():
 @app.route("/ce")
 def core():
     if "name" not in session:
-        return redirect("/")
+        return redirect("/login")
     if session['category'] != "CE":
-        return redirect("/")
+        return redirect("/login")
     temp = utils.db.get_data('orders')
     orders = {}
     for i in temp:
@@ -197,9 +197,9 @@ def ce_reject():
 @app.route("/capital")
 def capital():
     if "name" not in session:
-        return redirect("/")
+        return redirect("/login")
     if session['category'] != "Capitalist":
-        return redirect("/")
+        return redirect("/login")
 
     return render_template('/cap/index.html', name=session['name'])
 
