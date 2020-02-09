@@ -45,7 +45,7 @@
 
 ### **Technology Stack**
 
-![](https://github.com/Parizval/daiict/blob/master/static/img/python.png) 
+![](https://github.com/Parizval/daiict/blob/master/static/img/python.png)  
 ![](https://github.com/Parizval/daiict/blob/master/static/img/javascript.png)  
 ![](https://github.com/Parizval/daiict/blob/master/static/img/browser.png)  
 ![](https://github.com/Parizval/daiict/blob/master/static/img/bootstrap.jpg)  
