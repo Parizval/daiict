@@ -23,13 +23,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp; investors, in a common marketplace. In the marketplace, buyers (Core Enterprises - large corporations eg: Reliance, Tata<br/> &nbsp;&nbsp;&nbsp;&nbsp; Motors etc.) can source requirements from SMEs without having to compromise the cash flow.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; In Detail:
-&nbsp;&nbsp;&nbsp;&nbsp; 1) The buyer will raise a request to a specific SME when required.<br/>
+1) The buyer will raise a request to a specific SME when required.<br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp; 2)  The sellar can understant the buyer's requirements and  based on that &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;can specify the amount of  working capital and working capital deadline. <br>
+2)  The sellar can understant the buyer's requirements and  based on that can specify the amount of  working capital and working capital deadline. <br>
 
-&nbsp;&nbsp;&nbsp;&nbsp; 3) The buyer has the option to specify the percent of insurance that will &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be backed by their side in case of anything default by the sellar.
+3) The buyer has the option to specify the percent of insurance that will be backed by their side in case of anything default by the sellar.
 
-&nbsp;&nbsp;&nbsp;&nbsp; 3) After the final approval by the buyer's side, the contract will be visible &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the investors along with the previous statstical data of the buyer and &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;seller. 
+4) After the final approval by the buyer's side, the contract will be visible to the investors along with the previous statstical data of the buyer and seller. 
 ### **Technology Stack**
 
 ![](https://github.com/Parizval/daiict/tree/master/static/img/python.png)  
