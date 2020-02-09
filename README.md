@@ -1,4 +1,4 @@
-# CredBlock
+# fintact
 
 #### **_Product developed for HACKINFINITY 2.0 @DAIICT_**
 
@@ -10,7 +10,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp; They form an integral part of the country's economy and are thus closely tied with the growth and progress of India as<br/> &nbsp;&nbsp;&nbsp;&nbsp; a  nation. This makes problems faced by SMEs a collective issue that affects the economy, growth and wellbeing of the <br/> &nbsp;&nbsp;&nbsp;&nbsp; country and it's people.<br/>
 
-&nbsp;&nbsp;&nbsp;&nbsp; The problem that we identified as one of the most important, one that causes many SMEs to fade away into obscurity is &nbsp;&nbsp;&nbsp;&nbsp; cash flow management. Our product **CredBlock** aims to resolve this situation by applying blockchain technology and its &nbsp;&nbsp;&nbsp;&nbsp; paradigms.
+&nbsp;&nbsp;&nbsp;&nbsp; The problem that we identified as one of the most important, one that causes many SMEs to fade away into obscurity is &nbsp;&nbsp;&nbsp;&nbsp; cash flow management. Our product **fintact** aims to resolve this situation by applying blockchain technology and its &nbsp;&nbsp;&nbsp;&nbsp; paradigms.
 
 ### Major Problems Solved 
 
@@ -33,9 +33,19 @@
 3) The buyer has the option to specify the percent of insurance that will be backed by their side in case of anything default by the sellar.
 
 4) After the final approval by the buyer's side, the contract will be visible to the investors along with the previous statstical data of the buyer and seller. 
+### **Screenshots**
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_1.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_2.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_3.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_4.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_5.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/screenshots/thumbnail_6.png)  
+  
+
+
 ### **Technology Stack**
 
-![](https://github.com/Parizval/daiict/blob/master/static/img/python.png)  
+![](https://github.com/Parizval/daiict/blob/master/static/img/python.png) 
 ![](https://github.com/Parizval/daiict/blob/master/static/img/javascript.png)  
 ![](https://github.com/Parizval/daiict/blob/master/static/img/browser.png)  
 ![](https://github.com/Parizval/daiict/blob/master/static/img/bootstrap.jpg)  
